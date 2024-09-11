@@ -1,0 +1,65 @@
+// // services/enrollmentApi.ts
+// import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+
+// export const enrollmentApi = createApi({
+//   reducerPath: 'enrollmentApi',
+//   baseQuery: fetchBaseQuery({ baseUrl: '/api' }), // replace with your base URL
+//   endpoints: (builder) => ({
+//     enroll: builder.mutation<void, { userId: number; planId: number; paymentMethodId: string; screenshot: File }>({
+//       query: (enrollmentData) => ({
+//         url: '/enroll',
+//         method: 'POST',
+//         body: enrollmentData,
+//       }),
+//     }),
+//   }),
+// });
+
+// export const { useEnrollMutation } = enrollmentApi;
+
+
+// import React from 'react';
+// import { useSelector } from 'react-redux';
+// import { RootState } from './store'; // Path to your store
+// import { useEnrollMutation } from './services/enrollmentApi'; // Path to your API slice
+
+// const EnrollmentComponent: React.FC = () => {
+//   const userId = localStorage.getItem('userId');
+//   const plan = useSelector((state: RootState) => state.plan.selectedPlan);
+//   const paymentMethod = useSelector((state: RootState) => state.payment.selectedPaymentMethod);
+//   const screenshot = useSelector((state: RootState) => state.screenshot.uploadedScreenshot);
+
+//   const [enroll, { isLoading, isSuccess, isError, error }] = useEnrollMutation();
+
+//   const handleSubmit = async () => {
+//     if (!userId || !plan || !paymentMethod || !screenshot) {
+//       alert('Missing required information.');
+//       return;
+//     }
+
+//     try {
+//       await enroll({
+//         userId: Number(userId), // Ensure userId is a number
+//         planId: plan.id,
+//         paymentMethodId: paymentMethod.id,
+//         screenshot: screenshot, // File object
+//       }).unwrap(); // unwrap to handle errors
+//       alert('Enrollment successful!');
+//     } catch (err) {
+//       console.error('Enrollment failed:', err);
+//       alert('Enrollment failed.');
+//     }
+//   };
+
+//   return (
+//     <div>
+//       <button onClick={handleSubmit} disabled={isLoading}>
+//         {isLoading ? 'Enrolling...' : 'Enroll Now'}
+//       </button>
+//       {isError && <p>Error: {error.message}</p>}
+//       {isSuccess && <p>Enrollment successful!</p>}
+//     </div>
+//   );
+// };
+
+// export default EnrollmentComponent;
