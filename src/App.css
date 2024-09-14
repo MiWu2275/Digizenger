@@ -4,90 +4,27 @@
   padding: 0;
   text-align: center;
   box-sizing: border-box;
-  background-color: black;
 }
 body{
-  font-family: Helvetica, Sans-Serif;
-}
-
-ul .animation{
-    height: 3px;
-    background-color: #D00029;
-    position: absolute;
-    bottom: 0;
-    z-index: 0;
-    display: inline-block;
-    transition: 0.5s;
-}
-
-.icon::before{
-  content: " ";
-  height: 30px;
-  width: 3px;
-  background-color: #D00029;
-  position:absolute;
-  right:-10px;
-}
-
-.daily::before{
-  content: " ";
-  height: 20px;
-  width: 3px;
-  background-color: #D00029;
-  position:absolute;
-  margin-right: 30px;
-  text-align: center;
+  font-family: "DM Sans";
 }
 
 .or::before{
   content: " ";
   height: 1px;
-  width: 180px;
-  background-color: white;
+  width: 210px;
+  background-color: #C9DCDE;
   position:absolute;
-  top: 10px;
-  left: -12rem;
+  left: -35px;
+  top: 12px;
+
 }
 .or::after{
   content: " ";
   height: 1px;
-  width: 180px;
-  background-color: white;
+  width: 210px;
+  background-color: #C9DCDE;
   position:absolute;
-  top: 10px;
-  right: -12rem;
-}
-
-.back_color::before{
-  content:" ";
-  width:5rem;
-  height: 5rem;
-  background: radial-gradient(rgba(255, 0, 0, 0.8) 20%, rgba(255, 0, 0, 0) 100%);
-  box-shadow: 0 0 9rem 11rem rgba(255, 0, 0, 0.5);
-  position: absolute;
-  z-index: -1;
-  border-radius: 100%;
-  top: 120px;
-  left: 250px;
-  opacity: 0.9;
-  border: none;
-}
-
-.testimonials::before{
-  content: " ";
-  width: 27rem;
-  height: 3px;
-  position: absolute;
-  background-color: #FF0000;
-  left: 3rem;
-  top: 12px;
-}
-.testimonials::after{
-  content: " ";
-  width: 27rem;
-  height: 3px;
-  position: absolute;
-  background-color: #FF0000;
-  right: 3rem;
+  right: -35px;
   top: 12px;
 }
