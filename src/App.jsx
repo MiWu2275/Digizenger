@@ -7,6 +7,7 @@ import SignUp from './components/SignUp';
 import SignInfo from './components/SignInfo';
 import RequestIdentity from './page/RequestIdentity';
 import VerifyEmail from './components/VerifyEmail';
+import Homepage from './page/Homepage';
 
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
             <BrowserRouter>
                 <Nav/><br></br><br></br><br></br>
                 <Routes>
-                  <Route path='/' element={<div>Hi</div>}></Route> 
+                  <Route path='/' element={<Homepage/>}></Route> 
                   <Route path='/login' element={<Login/>}></Route>
                   <Route path='/signup' element={<SignUp/>}></Route>
                   <Route path='/signup/verify' element={<VerifyEmail/>}></Route>

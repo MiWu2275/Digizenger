@@ -3,6 +3,8 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { Link } from "react-router-dom";
 import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input'
+import { FaRegEyeSlash } from "react-icons/fa";
+import { FaRegEye } from "react-icons/fa";
 
 
 function Login() {
@@ -10,6 +12,8 @@ function Login() {
   const [activeLinkStyles, setActiveLinkStyles] = useState({ width: "169px", left: "536px" });
   const [recaptcha, setRecaptcha] = useState(null);
   const defaultActive = useRef();
+  const [open, setOpen] = useState(false);
+
 
   const grecaptchaObject = window.grecaptcha ;
 
@@ -75,9 +79,23 @@ function Login() {
         {/* active form */}
         <div>
             {activeForm === "form1" && (
-            <form className="grid grid-row-2 gap-y-[15px] px-[20px] mt-[1rem]  ml-[5rem] text-center">
+            <form className="grid grid-row-2 gap-y-[15px] px-[20px] mt-[1rem]  relative ml-[5rem] text-center">
                 <input type="email" name="email" placeholder="Enter your email" className="h-[45px] w-[350px] pl-[20px] rounded-[10px] border  outline-none border-[#00BCD4] justify-self-center" />
-                <input type="password" name="password" placeholder="Enter your password" className="h-[45px] w-[350px] pl-[20px] rounded-[10px] bg-[#ECF1F4] outline-none justify-self-center" />
+                <input type={open ? "text" : "password"} name="password" placeholder="Enter your password" className="h-[45px] w-[350px] pl-[20px] rounded-[10px] bg-[#ECF1F4] outline-none justify-self-center" />
+                {open ? 
+                (<button className="justify-self-center absolute top-[4.7rem] left-[49rem]" 
+                  onClick={(e)=> {
+                  e.preventDefault();
+                  setOpen(!open)}}>
+                    <FaRegEye />
+                 </button>) :
+                (<button className="justify-self-center absolute top-[4.7rem] right-[33rem]" 
+                  onClick={(e)=> {
+                    e.preventDefault();
+                    setOpen(!open)}}>
+                    <FaRegEyeSlash />
+                  </button>)
+               }
                 <div>
                     <input type="checkbox" className="mr-[13px]" />
                     <span className="mr-[45px] text-sm text-slate-400">Keep My Account</span>
@@ -100,7 +118,7 @@ function Login() {
             )}
 
             {activeForm === "form2" && (
-            <form className="grid grid-row-2 gap-y-[15px] px-[20px] mt-[1rem] ml-[5rem] text-center">
+            <form className="grid grid-row-2 gap-y-[15px] px-[20px] mt-[1rem] ml-[5rem] relative text-center">
                 <PhoneInput 
                     international
                     countryCallingCodeEditable={false}
@@ -110,7 +128,21 @@ function Login() {
                     type="phone" name="phone" placeholder="Enter your phone number" 
                     className="h-[45px] w-[350px] pl-[20px] rounded-[10px] border  outline-none justify-self-center border-[#00BCD4] " 
                 />
-                <input type="password" name="password" placeholder="Enter your password" className="h-[45px] w-[350px] pl-[20px] rounded-[10px] outline-none bg-[#ECF1F4] justify-self-center" />
+                <input type={open ? "text" : "password"} name="password" placeholder="Enter your password" className="h-[45px] w-[350px] pl-[20px] rounded-[10px] bg-[#ECF1F4] outline-none justify-self-center" />
+                {open ? 
+                (<button className="justify-self-center absolute top-[4.7rem] left-[49rem]" 
+                  onClick={(e)=> {
+                  e.preventDefault();
+                  setOpen(!open)}}>
+                    <FaRegEye />
+                 </button>) :
+                (<button className="justify-self-center absolute top-[4.7rem] right-[33rem]" 
+                  onClick={(e)=> {
+                    e.preventDefault();
+                    setOpen(!open)}}>
+                    <FaRegEyeSlash />
+                  </button>)
+               }
                 <div>
                     <input type="checkbox" className="mr-[13px]" />
                     <span className="mr-[45px] text-sm text-slate-400">Keep My Account</span>
