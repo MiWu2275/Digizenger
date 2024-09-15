@@ -2,7 +2,7 @@ import { IoShieldCheckmark } from "react-icons/io5";
 
 function RequestIdentity (){
     return(
-        <section className="flex justify-center">
+        <section className="flex justify-center mt-[30px]">
             <main className="text-center">
                 <div>
                     <article>

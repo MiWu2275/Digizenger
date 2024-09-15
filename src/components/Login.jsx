@@ -41,7 +41,7 @@ function Login() {
 
 
   return (
-    <section className="mb-[20px]">
+    <section className="mt-[30px] mb-[20px]">
       <main className="ml-[-60px]">
         <div className="mt-[-10px] grid mb-[10px] ">
           <h1 className="text-[36px] font-bold">
@@ -81,7 +81,7 @@ function Login() {
                 <div>
                     <input type="checkbox" className="mr-[13px]" />
                     <span className="mr-[45px] text-sm text-slate-400">Keep My Account</span>
-                    <span className="ml-[30px] font-semibold">Forget Password?</span>
+                    <span className="ml-[32px] font-semibold">Forget Password?</span>
                 </div>
                 <div className="justify-self-center ml-[-40px]">
                     <ReCAPTCHA
@@ -91,6 +91,7 @@ function Login() {
                     />
                 </div>
                 <Link><button className="py-[10px] bg-[#00BCD4] w-[350px] justify-self-center text-white rounded-lg" disabled={!recaptcha}>Login</button></Link>
+                <div className="w-[350px] bg-slate-100 h-[2px] justify-self-center mt-[-5px]"></div>
                 <div className="justify-self-center mt-[15px]">
                     <span className="text-slate-400">Not On Digizenger Yet?</span>
                     <button className="block font-semibold text-black py-[10px] bg-[#00BCD4] w-[350px] justify-self-center bg-[#ECF1F4] rounded-lg mt-[10px]">Create An Account</button>
@@ -123,6 +124,7 @@ function Login() {
                     />
                 </div>
                 <Link to="/"><button className="py-[10px] bg-[#00BCD4] w-[350px] justify-self-center text-white rounded-lg" disabled={!recaptcha}>Login</button></Link>
+                <div className="w-[350px] bg-slate-100 h-[2px] justify-self-center mt-[-5px]"></div>
                 <div className="justify-self-center mt-[15px]">
                     <span className="text-slate-400 ">Not On Digizenger Yet?</span>
                     <button className="block font-semibold text-black py-[10px] bg-[#00BCD4] w-[350px] justify-self-center bg-[#ECF1F4] rounded-lg mt-[10px]">Create An Account</button>

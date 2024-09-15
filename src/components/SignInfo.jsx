@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function SignInfo() {
 
   return (
-    <section className="mb-[20px]">
+    <section className="mb-[20px] mt-[35px]">
       <main className="ml-[-60px]">
         <div className="mt-[-10px] grid mb-[20px] ml-[-50px]">
                 <div className="ml-[-7rem] text-[36px] font-bold mt-[-10px]">
@@ -16,7 +16,7 @@ function SignInfo() {
                 </div>
         </div>
 
-        <div className="grid grid-cols-2 mr-[23rem] ml-[23.5rem]">
+        <div className="grid grid-cols-2 mr-[24rem] ml-[23.5rem]">
             <form className="grid grid-row-5 gap-y-[20px] px-[20px] mt-[1rem]  ml-[4rem] text-center">
                 <div className="flex gap-3">
                       <div className="grid">
@@ -171,7 +171,7 @@ function SignInfo() {
                 <label htmlFor="agree" className="mr-6">I agree to the Terms and Conditions</label>
             </div>
             <Link to="/signup/signinfo/requestIdentity">
-              <button className="w-[293px] place-self-center px-4 py-2 mt-[20px] text-lg  font-semibold ml-[12px] bg-blue-500 text-white rounded-md">
+              <button className="w-[293px] place-self-center px-6 py-1 mt-[20px] text-lg  font-semibold ml-[12px] bg-[#0097A7] text-white rounded-md">
               Sign Up
               </button>
             </Link>

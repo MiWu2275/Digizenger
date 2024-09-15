@@ -1,13 +1,53 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
+
 function VerifyEmail (){
+
+    const [code, setCode] = useState("");
+
+  const handleChange = (e) => {
+    const value = e.target.value;
+    // Only accept numbers and limit input to 4 digits
+    if (/^\d{0,4}$/.test(value)) {
+      setCode(value);
+    }
+  };
+
+  const renderMaskedCode = () => {
+    let maskedCode = code.split("").map(() => "•").join(" ");
+    maskedCode += " - ".repeat(4 - code.length).trim();
+    return maskedCode;
+  };
+
     return(
-        <section className="flex justify-center">
-            <main className="text-center">
+        <section className="flex justify-center mt-[30px]">
+            <main className="text-wrap">
                 <div>
-                    <article>
-                        <h1 className="text-[32px] font-semibold"><span className="text-[#00BCD4]">Verify </span> Your Email</h1>
-                        <p className="text-slate-400 tracking-wide mt-[15px] mb-[15px]">You will gain access to a suit of advanced tool and <br></br> exclusive feature designed to enhance your <br></br> experience by verifying your identity.</p>
+                    <article className="grid text-wrap ">
+                        <h1 className="text-[32px] font-semibold justify-self-start"><span className="text-[#00BCD4]">Verify </span> Your Email</h1>
+                        <div className="text-slate-400 mt-[15px] mb-[15px] flex flex-col">
+                            <span>We've emailed you a 4-digit code. Please check your</span>
+                            <span className="self-start">inbox and enter it below.</span>
+                        </div>
                     </article>
                 </div>
+                <div className="relative w-full mt-[20px] mb-[20px]">
+                    <input
+                    type="text"
+                    value={code}
+                    onChange={handleChange}
+                    maxLength="4"
+                    className="absolute inset-0 w-full h-[40px] bg-slate-300 rounded-lg opacity-[0.2] outline-none"
+                    />
+                    <div className="text-3xl w-full tracking-widest text-gray-500">{renderMaskedCode()}</div>
+                </div>
+                <p className="text-slate-400 text-sm  text-right mt-2">00:05</p>
+                <Link to="/signup/verify/signinfo">
+                    <button className="bg-[#0097A7] w-full text-white py-2 px-6 rounded-lg mt-4">
+                        Continue
+                    </button>
+                </Link>
+                
                 
             </main>
         </section>

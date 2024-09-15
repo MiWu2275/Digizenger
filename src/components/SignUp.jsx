@@ -28,7 +28,7 @@ function SignUp() {
   },[])
 
   return (
-    <section className="mb-[20px]">
+    <section className="mt-[30px] mb-[20px]">
       <main className="ml-[-60px]">
         <div className="mt-[-10px] grid mb-[10px] text-center">
           <h1 className="text-[36px] text-[#00BCD4] font-bold ml-[-8rem] ">
