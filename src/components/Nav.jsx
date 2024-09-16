@@ -6,7 +6,7 @@ function Nav(){
 
     return(
         <section className="nav_container fixed z-[10] bg-white w-full grid grid-cols-[30%_10%_50%]  gap-x-[0.1rem] border-b-2 border-slate-100 ">
-            <img src={logo} className="w-[170px] h-[50px] ml-[10rem] my-[0.3rem] mx-auto  md:ml-[5rem]  edsn_logo"></img>
+            <img src={logo} className="w-[170px] h-[50px] ml-[14rem] my-[0.3rem] mx-auto  md:ml-[5rem]  edsn_logo"></img>
             <div className="burger"><HamburgerMenu/></div>
             <ul className="normal_menu flex flex-cols gap-x-[3rem] self-center text-sm">
                 <Link to="/"><li className="first hover:text-[#00BCD4] " >Home</li></Link>
