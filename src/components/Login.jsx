@@ -45,20 +45,20 @@ function Login() {
 
 
   return (
-    <section className="mt-[30px] mb-[20px]">
-      <main className="ml-[-60px]">
+    <section className="flex justify-center mt-[30px] mb-[20px]">
+      <main className="login_container text-center">
         <div className="mt-[-10px] grid mb-[10px] ">
           <h1 className="text-[36px] font-bold">
-            <span className="text-[#00BCD4] text-[36px] ml-[2rem] font-bold">Connect</span> Anytime,
+            <span className="text-[#00BCD4] text-[36px] ml-[-3.1rem] font-bold">Connect</span> Anytime,
           </h1>
-          <div className="ml-[-6rem] text-[36px] font-bold">AnyWhere</div>
-          <div className="text-left justify-self-center w-[400px] ml-[8rem] text-[#8C8CA1] mt-[10px]">
+          <div className="ml-[-11rem] text-[36px] font-bold">AnyWhere</div>
+          <div className="text-left justify-self-center w-[400px] ml-[3rem] text-[#8C8CA1] mt-[10px]">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Incidunt alias dolorem corporis non labore vitae modi?
           </div>
         </div>
 
         {/* Tabs */}
-        <div className="grid grid-cols-[12%_12%] justify-center ml-[65px] relative">
+        <div className="grid grid-cols-[30%_30%] justify-center relative">
           <button ref={defaultActive} className="text-center py-[10px]" onClick={(e) => handleTabClick(e, "form1")}>
             Email
           </button>
@@ -79,17 +79,17 @@ function Login() {
         {/* active form */}
         <div>
             {activeForm === "form1" && (
-            <form className=" login_form grid grid-row-2 gap-y-[15px] px-[20px] mt-[1rem]  relative ml-[5rem] text-center">
+            <form className=" login_form grid grid-row-2 gap-y-[15px] px-[20px] mt-[1rem]  relative text-center">
                 <input type="email" name="email" placeholder="Enter your email" className="h-[45px] w-[350px] pl-[20px] rounded-[10px] border  outline-none border-[#00BCD4] justify-self-center" />
                 <input type={open ? "text" : "password"} name="password" placeholder="Enter your password" className="h-[45px] w-[350px] pl-[20px] rounded-[10px] bg-[#ECF1F4] outline-none justify-self-center" />
                 {open ? 
-                (<button className="eye_button1 justify-self-center absolute top-[4.7rem] left-[49rem]" 
+                (<button className="eye_button1 absolute top-[4.7rem] left-[21rem]" 
                   onClick={(e)=> {
                   e.preventDefault();
                   setOpen(!open)}}>
                     <FaRegEye />
                  </button>) :
-                (<button className="eye_button2 justify-self-center absolute top-[4.7rem] right-[33rem]" 
+                (<button className="eye_button2 absolute top-[4.7rem] right-[6rem]" 
                   onClick={(e)=> {
                     e.preventDefault();
                     setOpen(!open)}}>
@@ -118,7 +118,7 @@ function Login() {
             )}
 
             {activeForm === "form2" && (
-            <form className="grid grid-row-2 gap-y-[15px] px-[20px] mt-[1rem] ml-[5rem] relative text-center">
+            <form className="grid grid-row-2 gap-y-[15px] px-[20px] mt-[1rem] relative text-center">
                 <PhoneInput 
                     international
                     countryCallingCodeEditable={false}
@@ -130,13 +130,13 @@ function Login() {
                 />
                 <input type={open ? "text" : "password"} name="password" placeholder="Enter your password" className="h-[45px] w-[350px] pl-[20px] rounded-[10px] bg-[#ECF1F4] outline-none justify-self-center" />
                 {open ? 
-                (<button className="justify-self-center absolute top-[4.7rem] left-[49rem]" 
+                (<button className="eye_button1 absolute top-[4.7rem] left-[21rem]" 
                   onClick={(e)=> {
                   e.preventDefault();
                   setOpen(!open)}}>
                     <FaRegEye />
                  </button>) :
-                (<button className="justify-self-center absolute top-[4.7rem] right-[33rem]" 
+                (<button className="eye_button2 absolute top-[4.7rem] right-[6rem]" 
                   onClick={(e)=> {
                     e.preventDefault();
                     setOpen(!open)}}>
