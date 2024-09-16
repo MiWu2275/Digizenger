@@ -49,16 +49,16 @@ function Login() {
       <main className="ml-[-60px]">
         <div className="mt-[-10px] grid mb-[10px] ">
           <h1 className="text-[36px] font-bold">
-            <span className="text-[#00BCD4] text-[36px] font-bold">Connect</span> Anytime,
+            <span className="text-[#00BCD4] text-[36px] ml-[2rem] font-bold">Connect</span> Anytime,
           </h1>
-          <div className="ml-[-7rem] text-[36px] font-bold">AnyWhere</div>
-          <div className="text-left justify-self-center w-[400px] ml-[8rem] text-slate-400 mt-[10px]">
+          <div className="ml-[-6rem] text-[36px] font-bold">AnyWhere</div>
+          <div className="text-left justify-self-center w-[400px] ml-[8rem] text-[#8C8CA1] mt-[10px]">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Incidunt alias dolorem corporis non labore vitae modi?
           </div>
         </div>
 
         {/* Tabs */}
-        <div className="grid grid-cols-[12%_12%] justify-center ml-[50px] relative">
+        <div className="grid grid-cols-[12%_12%] justify-center ml-[65px] relative">
           <button ref={defaultActive} className="text-center py-[10px]" onClick={(e) => handleTabClick(e, "form1")}>
             Email
           </button>
@@ -79,17 +79,17 @@ function Login() {
         {/* active form */}
         <div>
             {activeForm === "form1" && (
-            <form className="grid grid-row-2 gap-y-[15px] px-[20px] mt-[1rem]  relative ml-[5rem] text-center">
+            <form className=" login_form grid grid-row-2 gap-y-[15px] px-[20px] mt-[1rem]  relative ml-[5rem] text-center">
                 <input type="email" name="email" placeholder="Enter your email" className="h-[45px] w-[350px] pl-[20px] rounded-[10px] border  outline-none border-[#00BCD4] justify-self-center" />
                 <input type={open ? "text" : "password"} name="password" placeholder="Enter your password" className="h-[45px] w-[350px] pl-[20px] rounded-[10px] bg-[#ECF1F4] outline-none justify-self-center" />
                 {open ? 
-                (<button className="justify-self-center absolute top-[4.7rem] left-[49rem]" 
+                (<button className="eye_button1 justify-self-center absolute top-[4.7rem] left-[49rem]" 
                   onClick={(e)=> {
                   e.preventDefault();
                   setOpen(!open)}}>
                     <FaRegEye />
                  </button>) :
-                (<button className="justify-self-center absolute top-[4.7rem] right-[33rem]" 
+                (<button className="eye_button2 justify-self-center absolute top-[4.7rem] right-[33rem]" 
                   onClick={(e)=> {
                     e.preventDefault();
                     setOpen(!open)}}>
@@ -97,11 +97,11 @@ function Login() {
                   </button>)
                }
                 <div>
-                    <input type="checkbox" className="mr-[13px]" />
-                    <span className="mr-[45px] text-sm text-slate-400">Keep My Account</span>
+                    <input type="checkbox" className="mr-[10px]" />
+                    <span className="mr-[40px] text-sm text-slate-400">Keep My Account</span>
                     <span className="ml-[32px] font-semibold">Forget Password?</span>
                 </div>
-                <div className="justify-self-center ml-[-40px]">
+                <div className="justify-self-center ml-[-42px]">
                     <ReCAPTCHA
                         sitekey="6LdJnUEqAAAAAOBrwZRBiDZw_yKwqNSsKW7EU7Pt"
                         onChange={(val)=> setRecaptcha(val)}
@@ -112,7 +112,7 @@ function Login() {
                 <div className="w-[350px] bg-slate-100 h-[2px] justify-self-center mt-[-5px]"></div>
                 <div className="justify-self-center mt-[15px]">
                     <span className="text-slate-400">Not On Digizenger Yet?</span>
-                    <button className="block font-semibold text-black py-[10px] bg-[#00BCD4] w-[350px] justify-self-center bg-[#ECF1F4] rounded-lg mt-[10px]">Create An Account</button>
+                    <button className="block font-semibold text-black py-[10px] bg-[#00BCD4] hover:bg-[#C9DCDE] w-[350px] justify-self-center bg-[#ECF1F4] rounded-lg mt-[10px]">Create An Account</button>
                 </div>
             </form>
             )}
@@ -159,7 +159,7 @@ function Login() {
                 <div className="w-[350px] bg-slate-100 h-[2px] justify-self-center mt-[-5px]"></div>
                 <div className="justify-self-center mt-[15px]">
                     <span className="text-slate-400 ">Not On Digizenger Yet?</span>
-                    <button className="block font-semibold text-black py-[10px] bg-[#00BCD4] w-[350px] justify-self-center bg-[#ECF1F4] rounded-lg mt-[10px]">Create An Account</button>
+                    <button className="block font-semibold text-black py-[10px] bg-[#00BCD4] w-[350px] justify-self-center bg-[#ECF1F4] hover:bg-[#C9DCDE] rounded-lg mt-[10px]">Create An Account</button>
                 </div>
             </form>
             )}

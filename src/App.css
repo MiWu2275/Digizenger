@@ -42,25 +42,42 @@ body{
   .nav_containger{
     grid-template-columns: 1fr 1fr;;
   }
+  .sign_up_button{
+    font-size: 15px !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    
+  }
 }
 
 @media  (max-width: 768px) {
   .nav_containger{
-    grid-template-columns: 1fr 1fr;
-    column-gap: 10px;
+    grid-template-columns: 1fr 2fr;
+    column-gap: 0px;
   }
   .burger{
       visibility: visible;
+      margin-left: 20rem;
   }
   .normal_menu{
       visibility: hidden;
-      column-gap: 1rem !important;
-      font-size: 10px !important;
+  }
+  .eye_button2{
+      right:10rem !important; 
+  }
+  .eye_button1{
+      left: 26.5rem !important;
   }
 }
 
 @media (max-width: 600px)  {
-  .edusn_logo{
-    margin-left: 0px !important;
+  .edsn_logo{
+    margin-left:80px !important;
   }
+  .burger{
+      margin-left: 18rem;
+  }
+
 }
+
+

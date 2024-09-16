@@ -7,11 +7,11 @@ function SignInfo() {
     <section className="mb-[20px] mt-[35px]">
       <main className="ml-[-60px]">
         <div className="mt-[-10px] grid mb-[20px] ml-[-50px]">
-                <div className="ml-[-7rem] text-[36px] font-bold mt-[-10px]">
+                <div className="ml-[-8rem] text-[36px] font-bold mt-[-10px]">
                     <span className="text-[#00BCD4]">Tell us more </span>
                     <span>about you</span>
                 </div>
-                <div className="text-left justify-self-center w-[400px] ml-[-3rem] text-slate-400 mt-[5px]">
+                <div className="text-left justify-self-center w-[400px] ml-[-5.5rem] text-[#8C8CA1] mt-[5px]">
                     Fill in your detail to create your account. 
                 </div>
         </div>
@@ -165,13 +165,13 @@ function SignInfo() {
             </form>
 
         </div>
-        <div className="grid mt-8 ml-[-13rem]">
+        <div className="grid mt-8  ml-[28.9rem] w-[645px]">
             <div>
-                <input type="checkbox" id="agree" name="agree" className="mr-2" />
-                <label htmlFor="agree" className="mr-6">I agree to the Terms and Conditions</label>
+                <input type="checkbox" id="agree" name="agree" className="mr-2 ml-[-1rem]" />
+                <label htmlFor="agree" className="mr-6 text-[#8C8CA1] text-left">By singing up,you accept our terms,privacy policy and cookie policy. You might also receive notification from us you can choose any time.</label>
             </div>
             <Link to="/signup/signinfo/requestIdentity">
-              <button className="w-[293px] place-self-center px-6 py-1 mt-[20px] text-lg  font-semibold ml-[12px] bg-[#0097A7] text-white rounded-md">
+              <button className="w-[293px]  px-14 py-1 mt-[20px] text-lg  font-semibold  ml-[-22rem] bg-[#0097A7] text-white rounded-md">
               Sign Up
               </button>
             </Link>

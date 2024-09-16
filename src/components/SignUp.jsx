@@ -35,7 +35,7 @@ function SignUp() {
             Welcome!
           </h1>
           <div className="ml-[-1rem] text-balance text-[36px] font-bold mt-[-10px]">Let's create your <h3 className="mt-[-10px] ml-[-9rem]">account</h3></div>
-          <div className="text-left justify-self-center w-[400px] ml-[8rem] text-slate-400 mt-[15px]">
+          <div className="text-left justify-self-center w-[400px] ml-[7rem] text-[#8C8CA1] mt-[15px]">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Incidunt alias dolorem corporis non labore vitae modi?
           </div>
         </div>
