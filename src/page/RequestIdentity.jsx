@@ -1,4 +1,5 @@
 import { IoShieldCheckmark } from "react-icons/io5";
+import {Link} from "react-router-dom"
 
 function RequestIdentity (){
     return(
@@ -10,7 +11,7 @@ function RequestIdentity (){
                         <h2 className="text-[32px] font-semibold tracking-wide">You're now a standard user. </h2>
                         <p className="whitespace-normal text-slate-400 tracking-wide">You have access to all our basic feature and can start <br/>exploring our platform right away.</p>
                     </article>
-                    <button className="w-[140px] p-[8px] mt-[20px] bg-[#0097A7] text-white text-[18px] font-bold tracking-wide rounded-[5px]">Explore Now</button>
+                    <Link to="/"><button className="w-[140px] p-[8px] mt-[20px] bg-[#0097A7] text-white text-[18px] font-bold tracking-wide rounded-[5px]">Explore Now</button></Link>
                 </div>
                 <div className="mt-[20px] mb-[10px] justify-self-center relative or">or</div>
                 <div className="grid bg-[#F6FCFF] shadow-sm p-[20px]">

@@ -1,12 +1,14 @@
 import logo from "/images/Digizenger2.png";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import HamburgerMenu from "./Hamburger.jsx"
 function Nav(){
 
     return(
-        <section className="fixed z-[10] bg-white w-full grid grid-cols-[40%_50%]  gap-x-[4rem] border-b-2 border-slate-100 ">
-            <img src={logo} className="w-[170px] h-[50px] ml-[10rem] my-[0.3rem]"></img>
-            <ul className="flex flex-cols gap-x-[3rem] self-center text-sm">
+        <section className="nav_container fixed z-[10] bg-white w-full grid grid-cols-[30%_10%_50%]  gap-x-[0.1rem] border-b-2 border-slate-100 ">
+            <img src={logo} className="w-[170px] h-[50px] ml-[10rem] my-[0.3rem] mx-auto sm:ml-[-5rem] md:ml-[2rem] lg:ml-[10rem] edsn_logo"></img>
+            <div className="burger"><HamburgerMenu/></div>
+            <ul className="normal_menu flex flex-cols gap-x-[3rem] self-center text-sm">
                 <Link to="/"><li className="first hover:text-[#00BCD4] " >Home</li></Link>
                 <Link to="course"><li className="second hover:text-[#00BCD4]" >Products</li></Link>
                 <Link to="pricing"><li className="hover:text-[#00BCD4]" >About Us</li></Link>

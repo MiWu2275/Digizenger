@@ -28,3 +28,39 @@ body{
   right: -35px;
   top: 12px;
 }
+
+.burger{
+  align-self: center;
+  visibility: hidden;
+}
+
+@media (max-width: 1536px) {
+  .normal_menu{
+    column-gap: 1rem !important;
+    font-size: 10px;
+  }
+  .nav_containger{
+    grid-template-columns: 1fr 1fr;;
+  }
+}
+
+@media  (max-width: 768px) {
+  .nav_containger{
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10px;
+  }
+  .burger{
+      visibility: visible;
+  }
+  .normal_menu{
+      visibility: hidden;
+      column-gap: 1rem !important;
+      font-size: 10px !important;
+  }
+}
+
+@media (max-width: 600px)  {
+  .edusn_logo{
+    margin-left: 0px !important;
+  }
+}
