@@ -1,12 +1,18 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { IoIosCheckmark } from "react-icons/io";
 
 
 function SignInfo() {
     const [radioButton, setRadioButton] = useState();
+    const [checked, setChecked] = useState(false);
 
     const radioHandle = (e) => {
         setRadioButton(e.target.value)
+    }
+
+    const checkHandle = (e) => {
+        setChecked(!checked);
     }
 
   return (
@@ -100,7 +106,7 @@ function SignInfo() {
                                 value="Male"
                                 checked={radioButton === "Male"}
                                 onChange={radioHandle}
-                                className={`bg-slate-100  h-[16px] w-[16px] rounded-[50px] appearance-none relative ${radioButton === "Male" ? "radio_check border-2 bg-white border-[#00BCD4]" :"bg-slate-300 "}`}
+                                className={`bg-slate-100  h-[16px] w-[16px] rounded-[50px] appearance-none relative ${radioButton === "Male" ? "radio_check border-2  border-[#00BCD4]" :" "}`}
                                 />
                               <label className="ml-[10px] mr-[20px]">Male</label>
                           </div>
@@ -111,7 +117,7 @@ function SignInfo() {
                                 value="Female"
                                 checked={radioButton === "Female"}
                                 onChange={radioHandle}
-                                className={`bg-slate-100  h-[16px] w-[16px] rounded-[50px] relative appearance-none ${radioButton === "Female" ? "border-2 border-[#00BCD4] bg-white radio_check" :" "}`}
+                                className={`bg-slate-100  h-[16px] w-[16px] rounded-[50px] relative appearance-none ${radioButton === "Female" ? "border-2 border-[#00BCD4] radio_check" :" "}`}
                               />
                               <label className="ml-[10px] mr-[20px]">Female</label>
                           </div>
@@ -122,7 +128,7 @@ function SignInfo() {
                                 value="Other"
                                 checked={radioButton === "Other"}
                                 onChange={radioHandle}
-                                className={`bg-slate-100  h-[16px] w-[16px] rounded-[50px] appearance-none relative ${radioButton === "Other" ? "border-2 border-[#00BCD4] bg-white radio_check " :"bg-slate-300 "}`}
+                                className={`bg-slate-100  h-[16px] w-[16px] rounded-[50px] appearance-none relative ${radioButton === "Other" ? "border-2 border-[#00BCD4]  radio_check " :" "}`}
                               />
                               <label className="ml-[10px] mr-[20px]">Other</label>
                           </div>
@@ -179,9 +185,12 @@ function SignInfo() {
 
         </div>
         <div className="flex flex-col justify-start mt-8 ml-[6rem] w-[645px]">
-            <div className="text-left">
-                <input type="checkbox" id="agree" name="agree" className="mr-2 " />
-                <label htmlFor="agree" className="mr-6 text-[#8C8CA1] text-left">By singing up,you accept our terms,privacy policy and cookie policy. </label>
+            <div className="text-left relative">
+                <input type="checkbox" id="agree" name="agree" onChange={checkHandle} className={`h-[20px] w-[20px]  appearance-none mr-2 ${checked ? " bg-[#00BCD4] z-[40]": "bg-slate-100 "} cursor-pointer`} />
+                <div className="absolute  top-[2px] ml-[2px] text-white">
+                    {checked ? (<IoIosCheckmark />) : ("")}
+                </div>
+                <label htmlFor="agree" className="mr-6 text-[#8C8CA1] text-left">By singing up,you accept our terms,privacy policy and cookie policy. By singing up,you accept our terms,privacy policy and cookie policy.</label>
             </div>
               <button className="w-[315px]  px-14 py-1 mt-[20px] text-lg  font-semibold  bg-[#0097A7] text-white rounded-md">
               <Link to="/signup/signinfo/requestIdentity">Sign Up</Link>

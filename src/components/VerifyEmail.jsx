@@ -14,7 +14,7 @@ function VerifyEmail (){
   };
 
   const renderMaskedCode = () => {
-    let maskedCode = code.split("").map(() => "•").join(" ");
+    let maskedCode = code.split("").map((digit) => digit).join(" ");
     maskedCode += " - ".repeat(6 - code.length).trim();
     return maskedCode;
   };
@@ -38,7 +38,7 @@ function VerifyEmail (){
                     onChange={handleChange}
                     maxLength="6"
                     className="absolute inset-0 w-full h-[40px] bg-transparent text-transparent caret-black outline-none"
-                    style={{ letterSpacing: '1rem', marginLeft: '7rem' }}
+                    style={{ letterSpacing: '1.5rem', marginLeft: '7rem' }}
                     />
                     <div className="text-3xl w-full tracking-widest text-gray-500">{renderMaskedCode()}</div>
                 </div>

@@ -34,13 +34,30 @@ body{
   visibility: hidden;
 }
 
+@media (max-width: 1300px) {
+    .normal_menu{
+      column-gap: 20px;
+      font-size: 10px;
+    }
+    .sign_up_button {
+      font-size: 12px !important;
+      padding-left: 8px !important;
+      padding-right: 8px !important;
+    }
+    .nav_containger{
+      grid-template-columns: 1fr 1fr;
+      column-gap: 0px;
+    }
+    
+}
 @media (max-width: 1024px) {
   .normal_menu{
     column-gap: 20px !important;
     font-size: 10px;
   }
   .nav_containger{
-    grid-template-columns: 1fr 1fr;;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 0px;
   }
   .sign_up_button{
     font-size: 10px !important;
@@ -69,7 +86,6 @@ body{
 
 }
 
-
 @media  (max-width: 768px) {
   .nav_containger{
     grid-template-columns: 1fr 2fr;
@@ -78,6 +94,7 @@ body{
   .burger{
       visibility: visible;
       margin-left: 28rem;
+      position: relative;
   }
   .normal_menu{
       visibility: hidden;
@@ -96,10 +113,23 @@ body{
 @media (max-width: 600px)  {
   .edsn_logo{
     margin-left:50px !important;
+    width:100px;
+    height: 40px;
   }
   .burger{
       margin-left: 16rem;
   }
+}
+
+@media (max-width: 430px) {
+  .burger{
+    margin-left: 13rem;
+}
+  .edsn_logo{
+    width:90px;
+    height: 60px;
+}
+  
 }
 
 .login_filter_button{

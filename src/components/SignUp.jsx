@@ -79,7 +79,7 @@ function SignUp() {
                 <Link to="/signup/verify"><button className="py-[10px] bg-[#00BCD4] w-[400px] justify-self-center ml-[44px] text-white rounded-lg" >Continue</button></Link>
                 <div className="w-[400px] bg-slate-100 ml-[44px] h-[2px] justify-self-center mt-[-5px]"></div>
                 <div className="justify-self-center">
-                    <span className="text-slate-400">Already have an account?</span>
+                    <span className="text-slate-400 ml-[4rem]">Already have an account?</span>
                     <button className="block font-semibold text-black py-[10px] bg-[#00BCD4] ml-[44px] w-[400px] justify-self-center text-black bg-slate-200 rounded-lg mt-[10px]">Login to Digizenger</button>
                 </div>
             </form>
