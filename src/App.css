@@ -43,6 +43,7 @@ body{
       font-size: 12px !important;
       padding-left: 8px !important;
       padding-right: 8px !important;
+      background-color: pink !important;
     }
     .nav_containger{
       grid-template-columns: 1fr 1fr;
@@ -50,28 +51,80 @@ body{
     }
     
 }
-@media (max-width: 1024px) {
-  .normal_menu{
-    column-gap: 20px !important;
-    font-size: 10px;
+
+@media (max-width: 1168px){
+  .normal_menu {
+    column-gap: 30px !important;
+    font-size: 16px !important;
   }
   .nav_containger{
     grid-template-columns: 1fr 1fr;
     column-gap: 0px;
   }
-  .sign_up_button{
-    font-size: 10px !important;
-    padding-left: 9px !important;
-    padding-right: 9px !important;
+    .sign_up_button {
+      font-size: 12px !important;
+      padding-left: 8px !important;
+      padding-right: 8px !important;
+      background-color: violet !important;
+    }
+  }
+@media (max-width: 1071px) {
+  .normal_menu{
+    column-gap: 25px !important;
+    font-size: 14px !important;
+  }
+  .nav_containger{
+    grid-template-columns: 1fr 1fr;
+    column-gap: 0px;
+  }
+  .sign_up_button {
+    font-size: 12px !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
     background-color: red !important;
   }
+}
+
+@media (max-width: 1024px) {
+  .normal_menu{
+    column-gap: 20px !important;
+    font-size: 14px !important;
+  }
+  .nav_containger{
+    grid-template-columns: 1fr 1fr;
+    column-gap: 0px;
+  }
+  .sign_up_button {
+    font-size: 12px !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+    background-color: yellow !important;
+  }
+
 
 }
 
+@media (max-width:890px) {
+  .normal_menu {
+    column-gap: 18px !important;
+    font-size: 14px !important;
+  }
+  .nav_containger {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 0px;
+  }
+  .sign_up_button {
+    font-size: 12px !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+    background-color: orange !important;
+  }
+  
+}
 @media (max-width: 870px) {
   .normal_menu {
-    column-gap: 10px !important;
-    font-size: 10px !important;
+    column-gap: 15px !important;
+    font-size: 14px !important;
   }
   .nav_containger {
     grid-template-columns: 1fr 1fr;
@@ -83,7 +136,33 @@ body{
     padding-right: 8px !important;
     background-color: green !important;
   }
+  .edsn_logo{
+    margin-left:5rem !important;
+    width:100px;
+    height: 40px;
+  }
+}
 
+@media (max-width: 841px) {
+  .normal_menu {
+    column-gap: 14px !important;
+    font-size: 12px !important;
+  }
+  .nav_containger {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 0px;
+  }
+  .sign_up_button {
+    font-size: 12px !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+    background-color: green !important;
+  }
+  .edsn_logo{
+    margin-left:5rem !important;
+    width:100px;
+    height: 40px;
+  }
 }
 
 @media  (max-width: 768px) {
@@ -93,8 +172,8 @@ body{
   }
   .burger{
       visibility: visible;
-      margin-left: 28rem;
-      position: relative;
+      left: 40rem;
+      position: absolute;
   }
   .normal_menu{
       visibility: hidden;
@@ -117,21 +196,57 @@ body{
     height: 40px;
   }
   .burger{
-      margin-left: 16rem;
+      left: 30rem;
   }
 }
 
-@media (max-width: 430px) {
+@media (max-width: 520px) {
   .burger{
-    margin-left: 13rem;
+    left: 26rem;
 }
   .edsn_logo{
-    width:90px;
-    height: 60px;
-}
-  
+    width:110px;
+    height: 50px;
+} 
 }
 
+@media (max-width: 480px) {
+  .burger{
+    left: 24rem;
+}
+  .edsn_logo{
+    width:110px;
+    height: 50px;
+} 
+  /* .signin_main_container{
+    margin-left: -8rem !important;
+  } */
+}
+
+@media (max-width: 400px) {
+  .burger{
+    left: 20rem;
+}
+  .edsn_logo{
+    width:70px;
+    height: 10px;
+}
+.signin_header_text{
+  margin-right: 0px;
+}
+.signin_body_text{
+  margin-left: 4.8rem !important; 
+  width: 360px !important; /* Add padding to ensure it doesn't touch the screen edges */
+}
+.signin_button_container{
+  margin-right: 38px !important;
+  margin-left: 100px !important;
+}
+.signin_input_box{
+  margin-left: 12px !important;
+  width: 359px !important;
+}
+}
 .login_filter_button{
     width: 100%;
 }
@@ -144,7 +259,7 @@ body{
   position: absolute;
   background-color: #00BCD4;
   top: 2px;
-  transform: translateX(1.5px);
+  transform: translateX(1.9px);
 }
 
 

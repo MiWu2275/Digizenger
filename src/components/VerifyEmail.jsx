@@ -37,8 +37,8 @@ function VerifyEmail (){
                     value={code}
                     onChange={handleChange}
                     maxLength="6"
-                    className="absolute inset-0 w-full h-[40px] bg-transparent text-transparent caret-black outline-none"
-                    style={{ letterSpacing: '1.5rem', marginLeft: '7rem' }}
+                    className="absolute inset-0 w-full  h-[40px]  pl-[7rem] bg-slate-300 opacity-[0.2] text-transparent caret-black outline-none"
+                    style={{ letterSpacing: '1.5rem' }}
                     />
                     <div className="text-3xl w-full tracking-widest text-gray-500">{renderMaskedCode()}</div>
                 </div>
