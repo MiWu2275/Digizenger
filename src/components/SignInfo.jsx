@@ -1,7 +1,13 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 
 function SignInfo() {
+    const [radioButton, setRadioButton] = useState();
+
+    const radioHandle = (e) => {
+        setRadioButton(e.target.value)
+    }
 
   return (
     <section className="flex  justify-center  w-full items-center mb-[20px] mt-[35px]">
@@ -92,7 +98,10 @@ function SignInfo() {
                                 type="radio"
                                 name="gender"
                                 value="Male"
-                                className="bg-slate-100"/>
+                                checked={radioButton === "Male"}
+                                onChange={radioHandle}
+                                className={`bg-slate-100  h-[16px] w-[16px] rounded-[50px] appearance-none relative ${radioButton === "Male" ? "radio_check border-2 bg-white border-[#00BCD4]" :"bg-slate-300 "}`}
+                                />
                               <label className="ml-[10px] mr-[20px]">Male</label>
                           </div>
                           <div className="">
@@ -100,7 +109,9 @@ function SignInfo() {
                                 type="radio"
                                 name="gender"
                                 value="Female"
-                                className="bg-slate-100"
+                                checked={radioButton === "Female"}
+                                onChange={radioHandle}
+                                className={`bg-slate-100  h-[16px] w-[16px] rounded-[50px] relative appearance-none ${radioButton === "Female" ? "border-2 border-[#00BCD4] bg-white radio_check" :" "}`}
                               />
                               <label className="ml-[10px] mr-[20px]">Female</label>
                           </div>
@@ -109,7 +120,9 @@ function SignInfo() {
                                 type="radio"
                                 name="gender"
                                 value="Other"
-                                className="bg-slate-100"
+                                checked={radioButton === "Other"}
+                                onChange={radioHandle}
+                                className={`bg-slate-100  h-[16px] w-[16px] rounded-[50px] appearance-none relative ${radioButton === "Other" ? "border-2 border-[#00BCD4] bg-white radio_check " :"bg-slate-300 "}`}
                               />
                               <label className="ml-[10px] mr-[20px]">Other</label>
                           </div>

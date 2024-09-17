@@ -100,7 +100,21 @@ body{
   .burger{
       margin-left: 16rem;
   }
+}
 
+.login_filter_button{
+    width: 100%;
+}
+
+.radio_check::after{
+  content: " ";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  position: absolute;
+  background-color: #00BCD4;
+  top: 2px;
+  transform: translateX(1.5px);
 }
 
 

@@ -9,7 +9,7 @@ import { FaRegEye } from "react-icons/fa";
 
 function Login() {
   const [activeForm, setActiveForm] = useState("form1");
-  const [activeLinkStyles, setActiveLinkStyles] = useState({ width: "169px", left: "536px" });
+  const [activeLinkStyles, setActiveLinkStyles] = useState({ width: "", left: ""  });
   const [recaptcha, setRecaptcha] = useState(null);
   const defaultActive = useRef();
   const [open, setOpen] = useState(false);
@@ -52,17 +52,17 @@ function Login() {
             <span className="text-[#00BCD4] text-[36px] ml-[-3.1rem] font-bold">Connect</span> Anytime,
           </h1>
           <div className="ml-[-11rem] text-[36px] font-bold">AnyWhere</div>
-          <div className="text-left justify-self-center w-[400px] ml-[3rem] text-[#8C8CA1] mt-[10px]">
+          <div className="text-left justify-self-center w-[350px]  text-[#8C8CA1] mt-[10px]">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Incidunt alias dolorem corporis non labore vitae modi?
           </div>
         </div>
 
         {/* Tabs */}
-        <div className="grid grid-cols-[30%_30%] justify-center relative">
-          <button ref={defaultActive} className="text-center py-[10px]" onClick={(e) => handleTabClick(e, "form1")}>
+        <div className="flex flex-cols ml-[20px] mr-[20px] justify-center relative">
+          <button ref={defaultActive} className="text-center login_filter_button py-[10px]" onClick={(e) => handleTabClick(e, "form1")}>
             Email
           </button>
-          <button className="text-center" onClick={(e) => handleTabClick(e, "form2")}>
+          <button className="text-center login_filter_button " onClick={(e) => handleTabClick(e, "form2")}>
             Phone
           </button>
 
@@ -83,13 +83,13 @@ function Login() {
                 <input type="email" name="email" placeholder="Enter your email" className="h-[45px] w-[350px] pl-[20px] rounded-[10px] border  outline-none border-[#00BCD4] justify-self-center" />
                 <input type={open ? "text" : "password"} name="password" placeholder="Enter your password" className="h-[45px] w-[350px] pl-[20px] rounded-[10px] bg-[#ECF1F4] outline-none justify-self-center" />
                 {open ? 
-                (<button className="eye_button1 absolute top-[4.7rem] left-[21rem]" 
+                (<button className="eye_button1 absolute top-[4.7rem] left-[20rem]" 
                   onClick={(e)=> {
                   e.preventDefault();
                   setOpen(!open)}}>
                     <FaRegEye />
                  </button>) :
-                (<button className="eye_button2 absolute top-[4.7rem] right-[6rem]" 
+                (<button className="eye_button2 absolute top-[4.7rem] right-[3.3rem]" 
                   onClick={(e)=> {
                     e.preventDefault();
                     setOpen(!open)}}>
@@ -130,13 +130,13 @@ function Login() {
                 />
                 <input type={open ? "text" : "password"} name="password" placeholder="Enter your password" className="h-[45px] w-[350px] pl-[20px] rounded-[10px] bg-[#ECF1F4] outline-none justify-self-center" />
                 {open ? 
-                (<button className="eye_button1 absolute top-[4.7rem] left-[21rem]" 
+                (<button className="eye_button1 absolute top-[4.7rem] left-[20rem]" 
                   onClick={(e)=> {
                   e.preventDefault();
                   setOpen(!open)}}>
                     <FaRegEye />
                  </button>) :
-                (<button className="eye_button2 absolute top-[4.7rem] right-[6rem]" 
+                (<button className="eye_button2 absolute top-[4.7rem] right-[3.3rem]" 
                   onClick={(e)=> {
                     e.preventDefault();
                     setOpen(!open)}}>

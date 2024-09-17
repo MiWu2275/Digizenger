@@ -8,14 +8,14 @@ function VerifyEmail (){
   const handleChange = (e) => {
     const value = e.target.value;
     // Only accept numbers and limit input to 4 digits
-    if (/^\d{0,4}$/.test(value)) {
+    if (/^\d{0,6}$/.test(value)) {
       setCode(value);
     }
   };
 
   const renderMaskedCode = () => {
     let maskedCode = code.split("").map(() => "•").join(" ");
-    maskedCode += " - ".repeat(4 - code.length).trim();
+    maskedCode += " - ".repeat(6 - code.length).trim();
     return maskedCode;
   };
 
@@ -36,8 +36,9 @@ function VerifyEmail (){
                     type="text"
                     value={code}
                     onChange={handleChange}
-                    maxLength="4"
-                    className="absolute inset-0 w-full h-[40px] bg-slate-300 rounded-lg opacity-[0.2] outline-none"
+                    maxLength="6"
+                    className="absolute inset-0 w-full h-[40px] bg-transparent text-transparent caret-black outline-none"
+                    style={{ letterSpacing: '1rem', marginLeft: '7rem' }}
                     />
                     <div className="text-3xl w-full tracking-widest text-gray-500">{renderMaskedCode()}</div>
                 </div>
