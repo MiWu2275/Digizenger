@@ -570,14 +570,62 @@ body{
   border-radius: 50%;
   position: absolute;
   background-color: #00BCD4;
-  top: 2px;
-  transform: translateX(1.9px);
+  top: 3px;
+  left: 3.6px;
+
 }
 
 @media (max-width: 480px) {
-  .container{
-    background-color: red;
+  .user_info_container{
+    margin-left: 10px !important;
+    margin-right: 1.5rem !important;
   }
+  .user_info_header1{
+    font-size: 30px !important;
+    margin-left: 18rem !important;
+  }
+  .user_info_header2{
+    font-size: 30px !important;
+  }
+  .user_info_body_text{
+    margin-left: 13.5rem !important;
+  }
+  .user_info_form_container{
+    grid-template-columns: 1fr !important;
+  }
+  .user_info_form1_container{
+    margin-left: 11.5rem !important;
+    row-gap: 2px !important;
+    width:fit-content !important;
+  }
+  .user_info_input_container{
+    gap: 12px !important;
+    width: 200px !important;
+  }
+  .user_info_form2_container{
+    margin-left: 11.5rem !important;
+    margin-top: 0px !important;
+    width: fit-content !important;
+  }
+  .user_info_button_container{
+    justify-self: center !important;
+  }
+  .user_button_container{
+    width: 340px !important;
+    margin-left: 7.8rem !important;
+  }
+  .user_info_checkbox{
+    margin-left: 20rem !important;
+  }
+  .user_info_button{
+    margin-left: 8rem !important;
+  }
+  .user_info_agree{
+    margin-left: 1px !important;
+  }
+}
+
+@media (max-width: 575px) {
   .user_info_container{
     margin-left: 10px !important;
     margin-right: 1.5rem !important;
@@ -664,7 +712,7 @@ body{
   }
   .user_button_container{
     width: 340px !important;
-    margin-left: 7.8rem !important;
+    margin-left: 7.9rem !important;
   }
   .user_info_checkbox{
     margin-left: 20rem !important;

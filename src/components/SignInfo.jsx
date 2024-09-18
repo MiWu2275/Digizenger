@@ -1,11 +1,15 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { IoIosCheckmark } from "react-icons/io";
+import { FaRegEyeSlash } from "react-icons/fa";
+import { FaRegEye } from "react-icons/fa";
 
 
 function SignInfo() {
     const [radioButton, setRadioButton] = useState();
     const [checked, setChecked] = useState(false);
+    const [password, setpassword] = useState(false);
+    const [confirmPassword, setConfirmPassword] = useState(false);
 
     const radioHandle = (e) => {
         setRadioButton(e.target.value)
@@ -16,10 +20,10 @@ function SignInfo() {
     }
 
   return (
-    <section className="flex  justify-center  container w-full items-center mb-[20px] mt-[35px]">
+    <section className="flex  justify-center  container w-full mb-[20px] mt-[35px]">
       <main className="text-center user_info_container">
         <div className="mt-[-10px] grid mb-[20px] ">
-                <div className=" text-[36px] ml-[-19.5rem] font-bold mt-[-10px]">
+                <div className=" text-[36px] ml-[-20rem] font-bold mt-[-10px]">
                     <span className="user_info_header1 text-[#00BCD4]">Tell us more </span>
                     <span className="user_info_header2">about you</span>
                 </div>
@@ -97,7 +101,7 @@ function SignInfo() {
                                 value="Male"
                                 checked={radioButton === "Male"}
                                 onChange={radioHandle}
-                                className={`bg-[#ECF1F4]  h-[16px] w-[16px] rounded-[50px] appearance-none relative ${radioButton === "Male" ? "radio_check border-2  border-[#00BCD4]" :" "}`}
+                                className={`bg-[#ECF1F4]  h-[18px] w-[19px] rounded-[50px] appearance-none relative ${radioButton === "Male" ? "radio_check border-2  border-[#00BCD4]" :" "}`}
                                 />
                               <label className="ml-[10px] mr-[20px] place-self-center">Male</label>
                           </div>
@@ -108,7 +112,7 @@ function SignInfo() {
                                 value="Female"
                                 checked={radioButton === "Female"}
                                 onChange={radioHandle}
-                                className={`bg-[#ECF1F4]  h-[16px] w-[16px] rounded-[50px] relative appearance-none ${radioButton === "Female" ? "border-2 border-[#00BCD4] radio_check" :" "}`}
+                                className={`bg-[#ECF1F4]  h-[18px] w-[19px] rounded-[50px] relative appearance-none ${radioButton === "Female" ? "border-2 border-[#00BCD4] radio_check" :" "}`}
                               />
                               <label className="ml-[10px] mr-[20px] ">Female</label>
                           </div>
@@ -119,7 +123,7 @@ function SignInfo() {
                                 value="Other"
                                 checked={radioButton === "Other"}
                                 onChange={radioHandle}
-                                className={`bg-[#ECF1F4]  h-[16px] w-[16px] rounded-[50px] appearance-none relative ${radioButton === "Other" ? "border-2 border-[#00BCD4]  radio_check " :" "}`}
+                                className={`bg-[#ECF1F4]  h-[18px] w-[19px] rounded-[50px] appearance-none relative ${radioButton === "Other" ? "border-2 border-[#00BCD4]  radio_check " :" "}`}
                               />
                               <label className="ml-[10px] mr-[20px]">Other</label>
                           </div>
@@ -148,28 +152,56 @@ function SignInfo() {
                           className="w-[315px] h-[40px] pl-[10px] rounded-[5px] bg-[#ECF1F4]"
                       />
                 </div>
-                <div className="grid">
+                <div className="grid relative">
                      <label className="block place-self-start text-slate-500 mb-[10px]">Password:</label>
                      <input
-                          type="text"
+                          type={password ? "text" : "password"}
                           name="lastName"
                           className="w-[315px] h-[40px]  pl-[10px] rounded-[5px] bg-[#ECF1F4]"
                       />
+                      {password ? 
+                            (<button className="eye_button1 absolute top-[3rem] left-[17.5rem]" 
+                            onClick={(e)=> {
+                            e.preventDefault();
+                            setpassword(!password)}}>
+                                <FaRegEye />
+                            </button>) :
+                            (<button className="eye_button2 absolute top-[3rem] right-[5rem]" 
+                            onClick={(e)=> {
+                                e.preventDefault();
+                                setpassword(!password)}}>
+                                <FaRegEyeSlash />
+                            </button>)
+                    }
                 </div>
-                <div className="grid">
+                <div className="grid relative">
                      <label className="block place-self-start text-slate-500 mb-[10px]">Confirm Password:</label>
                      <input
-                          type="text"
+                          type={confirmPassword ? "text" : "password"}
                           name="lastName"
                           className="w-[315px] h-[40px] pl-[10px] rounded-[5px] bg-[#ECF1F4]"
                       />
+                      {confirmPassword ? 
+                            (<button className="eye_button1 absolute top-[3rem] left-[17.5rem]" 
+                            onClick={(e)=> {
+                            e.preventDefault();
+                            setConfirmPassword(!confirmPassword)}}>
+                                <FaRegEye />
+                            </button>) :
+                            (<button className="eye_button2 absolute top-[3rem] right-[5rem]" 
+                            onClick={(e)=> {
+                                e.preventDefault();
+                                setConfirmPassword(!confirmPassword)}}>
+                                <FaRegEyeSlash />
+                            </button>)
+                    }
                 </div>
             </form>
 
         </div>
         <div className="user_info_button_container flex flex-col justify-start mt-8 ml-[6rem] w-[645px]">
             <div className=" user_button_container text-left flex relative">
-                <input type="checkbox" id="agree" name="agree" onChange={checkHandle} className={`h-[20px] w-[35px]  user_info_checkbox appearance-none mr-2 ${checked ? " bg-[#00BCD4] ": "bg-[#ECF1F4] "} cursor-pointer`} />
+                <input type="checkbox" id="agree" name="agree" onChange={checkHandle} className={`h-[20px] w-[35px] appearance-none mr-2 ${checked ? " bg-[#00BCD4] ": "bg-[#ECF1F4] "} cursor-pointer `} />
                 
                 <div className={`absolute inset-0 flex items-center top-[-1.9rem] pointer-events-none ${checked ? 'opacity-100' : 'opacity-0'}`}>
                      <IoIosCheckmark className="text-white text-xl" />
@@ -178,7 +210,7 @@ function SignInfo() {
                 <label htmlFor="agree" className="user_info_agree text-[#8C8CA1] ml-2 items-center text-left">By singing up,you accept our terms,privacy policy and cookie policy. By singing up,you accept our terms,privacy policy and cookie policy.</label>
             </div>
               <button className="w-[315px] user_info_button px-14 py-1 mt-[20px] text-lg  font-semibold  bg-[#0097A7] text-white rounded-md">
-              <Link to="/signup/signinfo/requestIdentity">Sign Up</Link>
+              <Link to="/signup/requestIdentity">Sign Up</Link>
               </button>
             
         </div>
