@@ -217,42 +217,7 @@ body{
   .edsn_logo{
     width:110px;
     height: 50px;
-} 
-.signin_main_container{
-  margin-left: -2rem !important;
-  margin-right: 3rem !important;
-}
-.header_text1{
-  margin-left: -6rem !important;
-  font-size: 30px !important;
-}
-.signin_header_text{
-  margin-left: -5px !important;
-  font-size: 30px !important;
-}
-.signin_header_text2{
-  font-size: 30px !important;
-  margin-left: -7.5rem !important;
-}
-.signin_body_text{
-  width: 350px !important;
-  margin-left: 6.5rem !important
-} 
-.signin_button_container{
-  margin-right: 3rem !important;
-  margin-left: 110px !important;
-}
-.signin_input_box{
-  margin-left: 28px !important;
-  width: 345px !important;
-}
-.already_account_container{
-  margin-top: 6rem !important;
-}
-.signin_already_account{
-  margin-left:9px !important;
-  margin-top: 10rem !important;
-}
+  }
 .login_main_container{
   margin-left: 10px !important;
   margin-right: 2rem !important;
@@ -287,6 +252,15 @@ body{
 .login_recaptcha{
   margin-left: -7px !important;
 }
+.login_account_button{
+  margin-top: 10rem;
+}
+.eye_button1{
+  margin-left: 5px;
+}
+.eye_button2{
+  margin-right: -3rem;
+}
 
 }
 
@@ -298,21 +272,47 @@ body{
     width:70px;
     height: 10px;
 }
-.signin_header_text{
-  margin-right: 0px;
+.login_main_container{
+  margin-left: 0px !important;
+  margin-right: 2rem !important;
 }
-.signin_body_text{
-  margin-left: 4.8rem !important; 
-  width: 360px !important; /* Add padding to ensure it doesn't touch the screen edges */
+.login_header_text1{
+  font-size: 30px !important;
+  margin-left: 1px !important;
 }
-.signin_button_container{
-  margin-right: 38px !important;
-  margin-left: 100px !important;
+.login_header_text2{
+  font-size: 30px !important;
+  /* margin-left: 1px !important; */
 }
-.signin_input_box{
-  margin-left: 12px !important;
-  width: 359px !important;
+.login_body_text{
+  width: 350px !important;
+  margin-left: 1.9rem !important;
 }
+.login_button_container{
+  margin-right: 1.8rem !important;
+  margin-left: 40px !important;
+}
+.login_input_box{
+  margin-left: 23px !important;
+  width: 345px !important;
+}
+.login_checkbox{
+  margin-left: 15px !important;
+  margin-right: 10px !important;
+}
+.login_keep_account{
+  margin-right: 30px !important;
+}
+.login_recaptcha{
+  margin-left: -7px !important;
+}
+.eye_button1{
+  margin-left: 5px;
+}
+.eye_button2{
+  margin-right: -3rem;
+}
+
 }
 
 @media (max-width: 393px) {
@@ -325,44 +325,9 @@ body{
     margin-left: 30px !important
 }
 
-  .signin_main_container{
-    margin-left: -2rem !important;
-    margin-right: 3rem !important;
-}
   .login_main_container{
     margin-left: 0px !important;
     margin-right: 2rem !important;
-  }
-  .header_text1{
-    margin-left: -6rem !important;
-    font-size: 30px !important;
-  }
-  .signin_header_text{
-    margin-left: -5px !important;
-    font-size: 30px !important;
-  }
-  .signin_header_text2{
-    font-size: 30px !important;
-    margin-left: -7.5rem !important;
-  }
-  .signin_body_text{
-    width: 340px !important;
-    margin-left: 6.5rem !important
-  } 
-  .signin_button_container{
-    margin-right: 3rem !important;
-    margin-left: 110px !important;
-  }
-  .signin_input_box{
-    margin-left: 9px !important;
-    width: 300px !important;
-  }
-  .already_account_container{
-    margin-top: 5rem !important;
-  }
-  .signin_already_account{
-    margin-left:9px !important;
-    margin-top: 10rem !important;
   }
   .login_header_text1{
     font-size: 30px !important;
@@ -394,6 +359,19 @@ body{
   .login_recaptcha{
     margin-left: -7px !important;
   }
+  .eye_button1{
+    margin-left: 5px;
+  }
+  .eye_button2{
+    margin-right: -3rem;
+  }
+
+  .verify-header{
+   width: 200px;
+  }
+  /* .verify_body{
+    width: 300px;
+  } */
 
 }
 
@@ -406,45 +384,9 @@ body{
     height: 5px;
     margin-left: 20px !important
 }
-
-  .signin_main_container{
-    margin-left: -2rem !important;
-    margin-right: 3rem !important;
-}
   .login_main_container{
     margin-left: 0px !important;
     margin-right: 2rem !important;
-  }
-  .header_text1{
-    margin-left: -6rem !important;
-    font-size: 30px !important;
-  }
-  .signin_header_text{
-    margin-left: -5px !important;
-    font-size: 30px !important;
-  }
-  .signin_header_text2{
-    font-size: 30px !important;
-    margin-left: -7.5rem !important;
-  }
-  .signin_body_text{
-    width: 340px !important;
-    margin-left: 6.5rem !important
-  } 
-  .signin_button_container{
-    margin-right: 3rem !important;
-    margin-left: 110px !important;
-  }
-  .signin_input_box{
-    margin-left: 9px !important;
-    width: 300px !important;
-  }
-  .already_account_container{
-    margin-top: 5rem !important;
-  }
-  .signin_already_account{
-    margin-left:9px !important;
-    margin-top: 10rem !important;
   }
   .login_header_text1{
     font-size: 30px !important;
@@ -476,6 +418,12 @@ body{
   .login_recaptcha{
     margin-left: -7px !important;
   }
+  .eye_button1{
+    margin-left: 5px;
+  }
+  .eye_button2{
+    margin-right: -3rem;
+  }
 }
 
 @media (max-width: 375px){
@@ -486,41 +434,6 @@ body{
   width:130px;
   height: 5px;
   margin-left: 30px !important
-}
-.signin_main_container{
-  margin-left: -2rem !important;
-  margin-right: 3rem !important;
-}
-.header_text1{
-  margin-left: -6rem !important;
-  font-size: 30px !important;
-}
-.signin_header_text{
-  margin-left: -5px !important;
-  font-size: 30px !important;
-}
-.signin_header_text2{
-  font-size: 30px !important;
-  margin-left: -7.5rem !important;
-}
-.signin_body_text{
-  width: 340px !important;
-  margin-left: 6.5rem !important
-} 
-.signin_button_container{
-  margin-right: 3rem !important;
-  margin-left: 110px !important;
-}
-.signin_input_box{
-  margin-left: 9px !important;
-  width: 300px !important;
-}
-.already_account_container{
-  margin-top: 5rem !important;
-}
-.signin_already_account{
-  margin-left:9px !important;
-  margin-top: 10rem !important;
 }
 .login_main_container{
   margin-left: 10px !important;
@@ -556,6 +469,12 @@ body{
 .login_recaptcha{
   margin-left: -7px !important;
 }
+.eye_button1{
+  margin-left: 5px;
+}
+.eye_button2{
+  margin-right: -3rem;
+}
 }
 
 
@@ -575,6 +494,120 @@ body{
 
 }
 
+@media (max-width: 526px) {
+  .user_info_container{
+    margin-left: 10px !important;
+    
+  }
+  .user_info_header1{
+    font-size: 32px !important;
+    margin-left: 20rem !important;
+  }
+  .user_info_header2{
+    font-size: 32px !important;
+  }
+  .user_info_body_text{
+    margin-left: 13.5rem !important;
+  }
+  .user_info_form_container{
+    grid-template-columns: 1fr !important;
+  }
+  .user_info_form1_container{
+    margin-left: 11.5rem !important;
+    row-gap: 2px !important;
+    width:fit-content !important;
+  }
+  .user_info_input_container{
+    gap: 15px !important;
+
+  }
+  .user_info_form2_container{
+    margin-left: 11.5rem !important;
+    margin-top: 0px !important;
+    width: fit-content !important;
+  }
+  .user_info_button_container{
+    justify-self: center !important;
+  }
+  .user_button_container{
+    width: 320px !important;
+    margin-left: 7.8rem !important;
+  }
+  .user_info_checkbox{
+    margin-left: 20rem !important;
+  }
+  .user_info_button{
+    margin-left: 8rem !important;
+  }
+  .user_info_agree{
+    margin-left: 1px !important;
+    font-size: 11px;
+  }
+  .eye2{
+    right: 2rem !important;
+  }
+  .eye1{
+    left: 16.5rem !important;
+  }
+}
+
+@media (max-width: 526px) {
+  .user_info_container{
+    margin-left: 10px !important;
+    margin-right: 1.5rem !important;
+  }
+  .user_info_header1{
+    font-size: 30px !important;
+    margin-left: 20rem !important;
+  }
+  .user_info_header2{
+    font-size: 30px !important;
+  }
+  .user_info_body_text{
+    margin-left: 13.5rem !important;
+  }
+  .user_info_form_container{
+    grid-template-columns: 1fr !important;
+  }
+  .user_info_form1_container{
+    margin-left: 11.5rem !important;
+    row-gap: 2px !important;
+    width:fit-content !important;
+  }
+  .user_info_input_container{
+    gap: 12px !important;
+    width: 200px !important;
+  }
+  .user_info_form2_container{
+    margin-left: 11.5rem !important;
+    margin-top: 0px !important;
+    width: fit-content !important;
+  }
+  .user_info_button_container{
+    justify-self: center !important;
+  }
+  .user_button_container{
+    width: 320px !important;
+    margin-left: 7.8rem !important;
+  }
+  .user_info_checkbox{
+    margin-left: 20rem !important;
+  }
+  .user_info_button{
+    margin-left: 8rem !important;
+  }
+  .user_info_agree{
+    margin-left: 1px !important;
+    font-size: 11px;
+  }
+  .eye2{
+    right: 2rem !important;
+  }
+  .eye1{
+    left: 16.5rem !important;
+  }
+}
+
 @media (max-width: 480px) {
   .user_info_container{
     margin-left: 10px !important;
@@ -582,13 +615,13 @@ body{
   }
   .user_info_header1{
     font-size: 30px !important;
-    margin-left: 18rem !important;
+    margin-left: 2rem !important;
   }
   .user_info_header2{
     font-size: 30px !important;
   }
   .user_info_body_text{
-    margin-left: 13.5rem !important;
+    margin-left: 7.6rem !important;
   }
   .user_info_form_container{
     grid-template-columns: 1fr !important;
@@ -611,67 +644,21 @@ body{
     justify-self: center !important;
   }
   .user_button_container{
-    width: 340px !important;
-    margin-left: 7.8rem !important;
-  }
-  .user_info_checkbox{
-    margin-left: 20rem !important;
+    width: 320px !important;
+    margin-left: 7.4rem !important;
   }
   .user_info_button{
-    margin-left: 8rem !important;
+    margin-left: 7.5rem !important;
   }
   .user_info_agree{
     margin-left: 1px !important;
+    font-size: 11px;
   }
-}
-
-@media (max-width: 575px) {
-  .user_info_container{
-    margin-left: 10px !important;
-    margin-right: 1.5rem !important;
+  .eye2{
+    right: 2rem !important;
   }
-  .user_info_header1{
-    font-size: 30px !important;
-    margin-left: 18rem !important;
-  }
-  .user_info_header2{
-    font-size: 30px !important;
-  }
-  .user_info_body_text{
-    margin-left: 13.5rem !important;
-  }
-  .user_info_form_container{
-    grid-template-columns: 1fr !important;
-  }
-  .user_info_form1_container{
-    margin-left: 11.5rem !important;
-    row-gap: 2px !important;
-    width:fit-content !important;
-  }
-  .user_info_input_container{
-    gap: 12px !important;
-    width: 200px !important;
-  }
-  .user_info_form2_container{
-    margin-left: 11.5rem !important;
-    margin-top: 0px !important;
-    width: fit-content !important;
-  }
-  .user_info_button_container{
-    justify-self: center !important;
-  }
-  .user_button_container{
-    width: 340px !important;
-    margin-left: 7.8rem !important;
-  }
-  .user_info_checkbox{
-    margin-left: 20rem !important;
-  }
-  .user_info_button{
-    margin-left: 8rem !important;
-  }
-  .user_info_agree{
-    margin-left: 1px !important;
+  .eye1{
+    left: 16.5rem !important;
   }
 }
 
@@ -682,13 +669,13 @@ body{
   }
   .user_info_header1{
     font-size: 30px !important;
-    margin-left: 18rem !important;
+    margin-left: 2rem !important;
   }
   .user_info_header2{
     font-size: 30px !important;
   }
   .user_info_body_text{
-    margin-left: 13.5rem !important;
+    margin-left: 7.6rem !important;
   }
   .user_info_form_container{
     grid-template-columns: 1fr !important;
@@ -711,17 +698,24 @@ body{
     justify-self: center !important;
   }
   .user_button_container{
-    width: 340px !important;
-    margin-left: 7.9rem !important;
+    width: 320px !important;
+    margin-left: 7.4rem !important;
   }
-  .user_info_checkbox{
+  /* .user_info_checkbox{
     margin-left: 20rem !important;
-  }
+  } */
   .user_info_button{
-    margin-left: 8rem !important;
+    margin-left: 7.5rem !important;
   }
   .user_info_agree{
     margin-left: 1px !important;
+    font-size: 11px;
+  }
+  .eye2{
+    right: 2rem !important;
+  }
+  .eye1{
+    left: 16.5rem !important;
   }
 }
 

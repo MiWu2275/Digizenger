@@ -21,11 +21,11 @@ function VerifyEmail (){
 
     return(
         <section className="flex justify-center mt-[30px]">
-            <main className="text-wrap">
+            <main className="verify_header text-wrap">
                 <div>
                     <article className="grid text-wrap ">
-                        <h1 className="text-[32px] font-semibold justify-self-start"><span className="text-[#00BCD4]">Verify </span> Your Email</h1>
-                        <div className="text-slate-400 mt-[15px] mb-[15px] flex flex-col">
+                        <h1 className=" text-[32px] font-semibold justify-self-start"><span className="text-[#00BCD4]">Verify </span> Your Email</h1>
+                        <div className="verify_body text-slate-400 mt-[15px] mb-[15px] flex flex-col">
                             <span>We've emailed you a 4-digit code. Please check your</span>
                             <span className="self-start">inbox and enter it below.</span>
                         </div>
@@ -43,7 +43,7 @@ function VerifyEmail (){
                     <div className="text-3xl w-full tracking-widest text-gray-500">{renderMaskedCode()}</div>
                 </div>
                 <p className="text-slate-400 text-sm  text-right mt-2">00:05</p>
-                <Link to="/signup/verify/signinfo">
+                <Link to="/">
                     <button className="bg-[#0097A7] w-full text-white py-2 px-6 rounded-lg mt-4">
                         Continue
                     </button>
