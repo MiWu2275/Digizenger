@@ -9,7 +9,7 @@ function Nav() {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <section className="relative">
+    <section className="relative z-20">
       <nav className="nav_container fixed bg-white w-full grid grid-cols-[30%_10%_50%] gap-x-[2rem] border-b-2 border-slate-100">
         <img
           src={logo}

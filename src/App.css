@@ -4,6 +4,7 @@
   padding: 0;
   text-align: center;
   box-sizing: border-box;
+  border-color: #00BCD4;
 }
 body{
   font-family: "DM Sans";
@@ -32,6 +33,13 @@ body{
 .burger{
   align-self: center;
   visibility: hidden;
+}
+
+@media (max-width:1920px) {
+  .nav_container{
+    width: 100%;
+    left: 0;
+  }
 }
 
 @media (max-width: 1300px) {
@@ -475,6 +483,9 @@ body{
 .eye_button2{
   margin-right: -3rem;
 }
+.login_account_button{
+  margin-top: 1rem !important;
+}
 }
 
 
@@ -496,81 +507,25 @@ body{
 
 @media (max-width: 526px) {
   .user_info_container{
-    margin-left: 10px !important;
-    
-  }
-  .user_info_header1{
-    font-size: 32px !important;
-    margin-left: 20rem !important;
-  }
-  .user_info_header2{
-    font-size: 32px !important;
-  }
-  .user_info_body_text{
-    margin-left: 13.5rem !important;
-  }
-  .user_info_form_container{
-    grid-template-columns: 1fr !important;
-  }
-  .user_info_form1_container{
-    margin-left: 11.5rem !important;
-    row-gap: 2px !important;
-    width:fit-content !important;
-  }
-  .user_info_input_container{
-    gap: 15px !important;
-
-  }
-  .user_info_form2_container{
-    margin-left: 11.5rem !important;
-    margin-top: 0px !important;
-    width: fit-content !important;
-  }
-  .user_info_button_container{
-    justify-self: center !important;
-  }
-  .user_button_container{
-    width: 320px !important;
-    margin-left: 7.8rem !important;
-  }
-  .user_info_checkbox{
-    margin-left: 20rem !important;
-  }
-  .user_info_button{
-    margin-left: 8rem !important;
-  }
-  .user_info_agree{
-    margin-left: 1px !important;
-    font-size: 11px;
-  }
-  .eye2{
-    right: 2rem !important;
-  }
-  .eye1{
-    left: 16.5rem !important;
-  }
-}
-
-@media (max-width: 526px) {
-  .user_info_container{
-    margin-left: 10px !important;
-    margin-right: 1.5rem !important;
+    margin-left: -11rem !important;
+    overflow: hidden !important;
   }
   .user_info_header1{
     font-size: 30px !important;
-    margin-left: 20rem !important;
+    margin-left: -0.9rem !important
   }
   .user_info_header2{
     font-size: 30px !important;
   }
   .user_info_body_text{
-    margin-left: 13.5rem !important;
+    margin-left: 6.9rem !important;
   }
   .user_info_form_container{
-    grid-template-columns: 1fr !important;
+    grid-template-columns:1fr !important;
+    margin-right: 3rem !important;
   }
   .user_info_form1_container{
-    margin-left: 11.5rem !important;
+    margin-left:10.5rem !important;
     row-gap: 2px !important;
     width:fit-content !important;
   }
@@ -579,69 +534,13 @@ body{
     width: 200px !important;
   }
   .user_info_form2_container{
-    margin-left: 11.5rem !important;
+    margin-left: 10.6rem !important;
     margin-top: 0px !important;
     width: fit-content !important;
-  }
-  .user_info_button_container{
-    justify-self: center !important;
-  }
-  .user_button_container{
-    width: 320px !important;
-    margin-left: 7.8rem !important;
-  }
-  .user_info_checkbox{
-    margin-left: 20rem !important;
-  }
-  .user_info_button{
-    margin-left: 8rem !important;
-  }
-  .user_info_agree{
-    margin-left: 1px !important;
-    font-size: 11px;
-  }
-  .eye2{
-    right: 2rem !important;
-  }
-  .eye1{
-    left: 16.5rem !important;
-  }
-}
 
-@media (max-width: 480px) {
-  .user_info_container{
-    margin-left: 10px !important;
-    margin-right: 1.5rem !important;
-  }
-  .user_info_header1{
-    font-size: 30px !important;
-    margin-left: 2rem !important;
-  }
-  .user_info_header2{
-    font-size: 30px !important;
-  }
-  .user_info_body_text{
-    margin-left: 7.6rem !important;
-  }
-  .user_info_form_container{
-    grid-template-columns: 1fr !important;
-  }
-  .user_info_form1_container{
-    margin-left: 11.5rem !important;
-    row-gap: 2px !important;
-    width:fit-content !important;
-  }
-  .user_info_input_container{
-    gap: 12px !important;
-    width: 200px !important;
-  }
-  .user_info_form2_container{
-    margin-left: 11.5rem !important;
-    margin-top: 0px !important;
-    width: fit-content !important;
   }
   .user_info_button_container{
-    justify-self: center !important;
+    margin-left: 5.5rem !important;
   }
   .user_button_container{
     width: 320px !important;
@@ -653,6 +552,186 @@ body{
   .user_info_agree{
     margin-left: 1px !important;
     font-size: 11px;
+  }
+  .check_icon{
+    top:-1rem !important;
+  }
+  .eye2{
+    right: 2rem !important;
+  }
+  .eye1{
+    left: 16.5rem !important;
+  }
+}
+
+@media (max-width: 492px) {
+  .user_info_container{
+    margin-left: -7.2rem !important;
+    overflow: hidden !important;
+  }
+  .user_info_header1{
+    font-size: 30px !important;
+    margin-left: -0.9rem !important
+  }
+  .user_info_header2{
+    font-size: 30px !important;
+  }
+  .user_info_body_text{
+    margin-left: 6.9rem !important;
+  }
+  .user_info_form_container{
+    grid-template-columns:1fr !important;
+    margin-right: 3rem !important;
+  }
+  .user_info_form1_container{
+    margin-left:10.5rem !important;
+    row-gap: 2px !important;
+    width:fit-content !important;
+  }
+  .user_info_input_container{
+    gap: 12px !important;
+    width: 200px !important;
+  }
+  .user_info_form2_container{
+    margin-left: 10.6rem !important;
+    margin-top: 0px !important;
+    width: fit-content !important;
+
+  }
+  .user_info_button_container{
+    margin-left: 5.5rem !important;
+  }
+  .user_button_container{
+    width: 320px !important;
+    margin-left: 7.4rem !important;
+  }
+  .user_info_button{
+    margin-left: 7.5rem !important;
+  }
+  .user_info_agree{
+    margin-left: 1px !important;
+    font-size: 11px;
+  }
+  .check_icon{
+    top:-1rem !important;
+  }
+  .eye2{
+    right: 2rem !important;
+  }
+  .eye1{
+    left: 16.5rem !important;
+  }
+}
+
+@media (max-width: 452px) {
+  .user_info_container{
+    margin-left: -8.5rem !important;
+    overflow: hidden !important;
+  }
+  .user_info_header1{
+    font-size: 30px !important;
+    margin-left: -0.9rem !important
+  }
+  .user_info_header2{
+    font-size: 30px !important;
+  }
+  .user_info_body_text{
+    margin-left: 6.9rem !important;
+  }
+  .user_info_form_container{
+    grid-template-columns:1fr !important;
+    margin-right: 3rem !important;
+  }
+  .user_info_form1_container{
+    margin-left:10.5rem !important;
+    row-gap: 2px !important;
+    width:fit-content !important;
+  }
+  .user_info_input_container{
+    gap: 12px !important;
+    width: 200px !important;
+  }
+  .user_info_form2_container{
+    margin-left: 10.6rem !important;
+    margin-top: 0px !important;
+    width: fit-content !important;
+
+  }
+  .user_info_button_container{
+    margin-left: 5.5rem !important;
+  }
+  .user_button_container{
+    width: 320px !important;
+    margin-left: 7.4rem !important;
+  }
+  .user_info_button{
+    margin-left: 7.5rem !important;
+  }
+  .user_info_agree{
+    margin-left: 1px !important;
+    font-size: 11px;
+  }
+  .check_icon{
+    top:-1rem !important;
+  }
+  .eye2{
+    right: 2rem !important;
+  }
+  .eye1{
+    left: 16.5rem !important;
+  }
+}
+
+@media (max-width: 393px) {
+  .user_info_container{
+    margin-left: -10.5rem !important;
+    overflow: hidden !important;
+  }
+  .user_info_header1{
+    font-size: 30px !important;
+    margin-left: -0.9rem !important
+  }
+  .user_info_header2{
+    font-size: 30px !important;
+  }
+  .user_info_body_text{
+    margin-left: 6.9rem !important;
+  }
+  .user_info_form_container{
+    grid-template-columns:1fr !important;
+    margin-right: 3rem !important;
+  }
+  .user_info_form1_container{
+    margin-left:10.5rem !important;
+    row-gap: 2px !important;
+    width:fit-content !important;
+  }
+  .user_info_input_container{
+    gap: 12px !important;
+    width: 200px !important;
+  }
+  .user_info_form2_container{
+    margin-left: 10.6rem !important;
+    margin-top: 0px !important;
+    width: fit-content !important;
+
+  }
+  .user_info_button_container{
+    margin-left: 5.5rem !important;
+  }
+  .user_button_container{
+    width: 320px !important;
+    margin-left: 7.4rem !important;
+  }
+  .user_info_button{
+    margin-left: 7.5rem !important;
+  }
+  .user_info_agree{
+    margin-left: 1px !important;
+    font-size: 11px;
+  }
+  .check_icon{
+    top:-1rem !important;
   }
   .eye2{
     right: 2rem !important;
@@ -664,24 +743,25 @@ body{
 
 @media (max-width: 375px) {
   .user_info_container{
-    margin-left: 10px !important;
-    margin-right: 1.5rem !important;
+    margin-left: -11rem !important;
+    overflow: hidden !important;
   }
   .user_info_header1{
     font-size: 30px !important;
-    margin-left: 2rem !important;
+    margin-left: -0.9rem !important
   }
   .user_info_header2{
     font-size: 30px !important;
   }
   .user_info_body_text{
-    margin-left: 7.6rem !important;
+    margin-left: 6.9rem !important;
   }
   .user_info_form_container{
-    grid-template-columns: 1fr !important;
+    grid-template-columns:1fr !important;
+    margin-right: 3rem !important;
   }
   .user_info_form1_container{
-    margin-left: 11.5rem !important;
+    margin-left:10.5rem !important;
     row-gap: 2px !important;
     width:fit-content !important;
   }
@@ -690,26 +770,27 @@ body{
     width: 200px !important;
   }
   .user_info_form2_container{
-    margin-left: 11.5rem !important;
+    margin-left: 10.5rem !important;
     margin-top: 0px !important;
     width: fit-content !important;
+
   }
   .user_info_button_container{
-    justify-self: center !important;
+    margin-left: 5.5rem !important;
   }
   .user_button_container{
     width: 320px !important;
     margin-left: 7.4rem !important;
   }
-  /* .user_info_checkbox{
-    margin-left: 20rem !important;
-  } */
   .user_info_button{
     margin-left: 7.5rem !important;
   }
   .user_info_agree{
     margin-left: 1px !important;
     font-size: 11px;
+  }
+  .check_icon{
+    top:-1rem !important;
   }
   .eye2{
     right: 2rem !important;

@@ -1,0 +1,8 @@
+.homepage_container{
+    display: grid;
+    grid-template-columns: 33.33% 350px auto;
+    background-color: red;
+    gap: 10px;
+    border-color: aqua;
+
+}
