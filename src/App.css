@@ -512,7 +512,7 @@ body{
   }
   .user_info_header1{
     font-size: 30px !important;
-    margin-left: -0.9rem !important
+    margin-left: 1rem !important
   }
   .user_info_header2{
     font-size: 30px !important;
@@ -571,7 +571,7 @@ body{
   }
   .user_info_header1{
     font-size: 30px !important;
-    margin-left: -0.9rem !important
+    margin-left: 1rem !important
   }
   .user_info_header2{
     font-size: 30px !important;
@@ -630,7 +630,7 @@ body{
   }
   .user_info_header1{
     font-size: 30px !important;
-    margin-left: -0.9rem !important
+    margin-left: 1rem !important
   }
   .user_info_header2{
     font-size: 30px !important;
@@ -689,7 +689,7 @@ body{
   }
   .user_info_header1{
     font-size: 30px !important;
-    margin-left: -0.9rem !important
+    margin-left: 1rem !important
   }
   .user_info_header2{
     font-size: 30px !important;
@@ -748,7 +748,7 @@ body{
   }
   .user_info_header1{
     font-size: 30px !important;
-    margin-left: -0.9rem !important
+    margin-left: 1rem !important
   }
   .user_info_header2{
     font-size: 30px !important;
@@ -797,6 +797,12 @@ body{
   }
   .eye1{
     left: 16.5rem !important;
+  }
+  .verify_body{
+    margin-left: 3px;
+  }
+  .verify_text{
+    font-size: 13px;
   }
 }
 

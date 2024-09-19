@@ -12,6 +12,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.7",
     "antd": "^5.20.1",
+    "caniuse-lite": "^1.0.30001662",
     "emailjs-com": "^3.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -37,7 +38,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
     "postcss": "^8.4.33",
-    "tailwindcss": "^3.4.1",
+    "tailwindcss": "^3.4.12",
     "vite": "^5.0.8"
   }
 }

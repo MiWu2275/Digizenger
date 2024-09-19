@@ -21,13 +21,13 @@ function VerifyEmail (){
 
     return(
         <section className="flex justify-center mt-[30px]">
-            <main className="verify_header text-wrap">
+            <main className="verify_header text-wrap  max-width-[375px] px-[20px]">
                 <div>
                     <article className="grid text-wrap ">
                         <h1 className=" text-[32px] font-semibold justify-self-start"><span className="text-[#00BCD4]">Verify </span> Your Email</h1>
                         <div className="verify_body text-slate-400 mt-[15px] mb-[15px] flex flex-col">
-                            <span>We've emailed you a 4-digit code. Please check your</span>
-                            <span className="self-start">inbox and enter it below.</span>
+                            <span className="verify_text">We've emailed you a 4-digit code. Please check your</span>
+                            <span className="verify_text self-start">inbox and enter it below.</span>
                         </div>
                     </article>
                 </div>
