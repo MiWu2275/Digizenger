@@ -4,5 +4,14 @@
     background-color: red;
     gap: 10px;
     border-color: aqua;
+    transition: all 0.3s ease;
 
+}
+.homepage_container_without_chat_room{
+    display: grid;
+    grid-template-columns: 50% 1fr;
+    background-color: pink;
+    gap: 10px;
+    border-color: aqua;
+    transition: all 0.3s ease;
 }

@@ -3,14 +3,14 @@ import MenuNav from "../components/MenuNav2";
 import Post from "../components/Post";
 import Banner from "../components/banner";
 
-function NewFeed(){
+function NewFeed({activeChat}){
     return(
         <section>
-            <NewFeedNav/>
-            <MenuNav/>
+            <NewFeedNav activeChat={activeChat}/>
+            <MenuNav activeChat={activeChat}/>
             <div className="flex flex-col p-[20px] gap-[12px] w-full bg-[#ECF1F4]">
-                <Post/>
-                <Banner/>
+                <Post activeChat={activeChat}/>
+                <Banner activeChat={activeChat}/>
             </div>
             
         </section>

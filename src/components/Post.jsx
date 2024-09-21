@@ -6,7 +6,7 @@ import publicIcon from '/images/public.png';
 import { GoImage } from "react-icons/go";
 import { PiGif } from "react-icons/pi";
 
-function Post() {
+function Post({activeChat}) {
     const [isButtonDisabled, setIsButtonDisabled] = useState(true);
     const [showMedia , setShowMedia] = useState(false);
 
@@ -26,14 +26,14 @@ function Post() {
 
     return (
         <section>
-            <main className="flex flex-col items-center gap-[14px] p-[20px] rounded-[8px] self-stretch bg-white">
+            <main className={activeChat ? "flex flex-col items-center gap-[14px] p-[20px] rounded-[8px] self-stretch bg-white" : "flex flex-col  gap-[14px] p-[20px] rounded-[8px] self-stretch bg-white"}>
                 <div className="flex flex-col items-center bg-white">
 
-                    <div className="flex flex-col gap-[10px] items-start  self-stretch">
+                    <div className={activeChat? "flex flex-col gap-[10px] items-start  self-stretch" : "flex flex-col gap-[20px] items-start  self-stretch"}>
                         
                         <div className="flex items-start justify-between">
 
-                            <div className="flex gap-[8px] w-[320px]">
+                            <div className={activeChat ? "flex gap-[8px] w-[320px]" : "flex w-[430px] gap-[15px]"}>
 
                                 <div className="w-[38px] h-[38px]">
                                     <img src={john} alt="John" />
