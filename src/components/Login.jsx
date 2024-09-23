@@ -45,7 +45,7 @@ function Login() {
 
 
   return (
-    <section className="flex justify-center mt-[30px] mb-[20px]">
+    <section className="flex justify-center pt-[80px] mb-[20px]">
       <main className="login_main_container text-center">
         <div className="mt-[-10px] grid mb-[10px] ">
           <h1 className="login_header_text1 text-[36px] font-bold">

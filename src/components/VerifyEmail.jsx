@@ -1,13 +1,33 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function VerifyEmail (){
 
     const [code, setCode] = useState("");
+    const [isTimeOut, setTimeOut] =useState(false);
+    const [timer, setTimer] = useState("60");
+
+
+  useEffect(()=>{
+    if (timer>0 ){
+        const countDown = setTimeout(() => setTimer(timer-1),1000);
+        return () => clearTimeout(countDown)
+    } else {
+        setTimeOut(true);
+    }
+
+  },[timer])
+
+  const timeFormat = () =>{
+    const minutes = Math.floor(timer / 60);
+    const second =  timer % 60;
+    return `${minutes}:${second < 10 ? "0":""}${second}`;
+  }
+
 
   const handleChange = (e) => {
     const value = e.target.value;
-    // Only accept numbers and limit input to 4 digits
+    // Only accept numbers and limit input to 6 digits
     if (/^\d{0,6}$/.test(value)) {
       setCode(value);
     }
@@ -42,7 +62,11 @@ function VerifyEmail (){
                     />
                     <div className="text-3xl w-full tracking-widest text-gray-500">{renderMaskedCode()}</div>
                 </div>
-                <p className="text-slate-400 text-sm  text-right mt-2">00:05</p>
+                <p style={{ color: isTimeOut ? "red" : "black" }}>
+                    {isTimeOut
+                        ? "Time is up. Please request a new code."
+                        : `Time remaining: ${timeFormat(timer)}`}
+                </p>
                 <Link to="/">
                     <button className="bg-[#0097A7] w-full text-white py-2 px-6 rounded-lg mt-4">
                         Continue
