@@ -40,7 +40,7 @@ function VerifyEmail (){
   };
 
     return(
-        <section className="flex justify-center mt-[30px]">
+        <section className="flex justify-center pt-[100px]">
             <main className="verify_header text-wrap  max-width-[375px] px-[20px]">
                 <div>
                     <article className="grid text-wrap ">

@@ -18,8 +18,8 @@ function MainApp() {
   const pageSpecificMargin = {
      // Apply negative margin only for homepage
     "/login": "mt-[0px]",
-    "/signup": "mt-[20px]",
-    "/signup/verify": "mt-[20px]",
+    "/signup": "mt-[0px]",
+    "/signup/verify": "mt-[0px]",
     "/signup/verify/requestIdentity": "mt-[20px]"
   };
 

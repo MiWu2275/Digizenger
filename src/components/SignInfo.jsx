@@ -6,11 +6,20 @@ import { FaRegEye } from "react-icons/fa";
 
 
 function SignInfo() {
+    const currentYear = new Date().getFullYear();
     const [radioButton, setRadioButton] = useState();
     const [checked, setChecked] = useState(false);
     const [password, setpassword] = useState(false);
     const [confirmPassword, setConfirmPassword] = useState(false);
     const [inputBackground, setInputBackground] = useState();
+
+    const generateDays = () => Array.from({ length: 31 }, (_, i) => i + 1);
+    const generateMonths = () => Array.from({ length: 12 }, (_, i) => i + 1);
+    const generateYears = () => Array.from({ length: 50 }, (_, i) => currentYear - i);
+
+    const [selectedDay, setSelectedDay] = useState('');
+    const [selectedMonth, setSelectedMonth] = useState('');
+    const [selectedYear, setSelectedYear] = useState(currentYear);
 
     const radioHandle = (e) => {
         setRadioButton(e.target.value)
@@ -31,6 +40,13 @@ function SignInfo() {
         }
     };
 
+    const handleDateChange = (type, value) => {
+        const [day, month, year] = dateOfBirth.split('-').map(Number);
+        if (type === 'day') setInitialForm(prevForm => ({ ...prevForm, dateOfBirth: `${value}-${month}-${year}` }));
+        else if (type === 'month') setInitialForm(prevForm => ({ ...prevForm, dateOfBirth: `${day}-${value}-${year}` }));
+        else if (type === 'year') setInitialForm(prevForm => ({ ...prevForm, dateOfBirth: `${day}-${month}-${value}` }));
+    };
+
     useEffect(() => {
         document.addEventListener('mousedown', handleClickOutside);
         return () => {
@@ -39,7 +55,7 @@ function SignInfo() {
     }, []);
 
   return (
-    <section className="flex  justify-center  container W-full  mb-[20px] mt-[35px]"  onClick={handleClickOutside}>
+    <section className="flex  justify-center  container W-full  mb-[20px] pt-[100px]"  onClick={handleClickOutside}>
       <main className="text-center ml-[5rem] user_info_container">
         <div className="mt-[-10px] grid  w-[400px] ml-[6rem] mb-[20px] ">
                 <div className=" text-[36px] header_container font-bold mt-[-10px]">
@@ -87,27 +103,27 @@ function SignInfo() {
                       <label className="block place-self-start text-slate-500 mb-[10px]">Date Of Birth:</label>
                       <div className="flex gap-3">
                           <div className="grid">
-                              <select id="options" name="options" className="w-[96.5px] h-[40px] px-[10px] border-2 border-[#ECF1F4] rounded-[5px] text-slate-400 ">
-                                    <option value="option1">Day</option>
-                                    <option value="option2">Option 2</option>
-                                    <option value="option3">Option 3</option>
-                                    <option value="option4">Option 4</option>
+                              <select id="options" name="options" className="w-[96.5px] h-[40px] px-[10px] border-2 border-[#ECF1F4] rounded-[5px] text-slate-400 " onChange={(e) => handleDateChange('day', e.target.value)}>
+                                    <option value="">Day</option>
+                                    {generateDays().map((day) => (
+                                    <option key={day} value={day}>{day}</option>
+                                ))}
                               </select>
                           </div>
                           <div className="">
-                              <select id="options" name="options" className="w-[96.5px] h-[40px] px-[10px] text-slate-400 rounded-[5px] border-2 border-[#ECF1F4]">
-                                        <option value="option1">Month</option>
-                                        <option value="option2">Option 2</option>
-                                        <option value="option3">Option 3</option>
-                                        <option value="option4">Option 4</option>
+                              <select id="options" name="options" className="w-[96.5px] h-[40px] px-[10px] text-slate-400 rounded-[5px] border-2 border-[#ECF1F4]" onChange={(e) => handleDateChange('month', e.target.value)}>
+                                        <option value="">Month</option>
+                                        {generateMonths().map((month) => (
+                                        <option key={month} value={month}>{month}</option>
+                                ))}
                               </select>
                           </div>
                           <div className="">
-                              <select id="options" name="options" className="w-[96.5px] h-[40px] text-slate-400 rounded-[5px] px-[10px] border-2 border-[#ECF1F4]">
+                              <select id="options" name="options" className="w-[96.5px] h-[40px] text-slate-400 rounded-[5px] px-[10px] border-2 border-[#ECF1F4]" onChange={(e) => handleDateChange('year', e.target.value)}>
                                         <option value="option1">Year</option>
-                                        <option value="option2">Option 2</option>
-                                        <option value="option3">Option 3</option>
-                                        <option value="option4">Option 4</option>
+                                        {generateYears().map((year) => (
+                                        <option key={year} value={year}>{year}</option>
+                                ))}
                                 </select>
                           </div>
                       </div>

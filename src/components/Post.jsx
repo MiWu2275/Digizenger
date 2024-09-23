@@ -33,7 +33,7 @@ function Post({activeChat}) {
                         
                         <div className="flex items-start justify-between">
 
-                            <div className={activeChat ? "flex gap-[8px] w-[320px]" : "flex w-[430px] gap-[15px]"}>
+                            <div className={activeChat ? "flex gap-[8px] w-[320px]" : "flex w-[450px] gap-[15px]"}>
 
                                 <div className="w-[38px] h-[38px]">
                                     <img src={john} alt="John" />
