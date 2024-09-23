@@ -1,7 +1,7 @@
 import logo from "/images/Digizenger2.png";
 
 function NewFeedNav({activeChat}){
-    console.log("Active Chat:", activeChat);
+
     return(
         <section className="border-b-2 border-[#ECF1F4] bg-white w-full">
             <div>

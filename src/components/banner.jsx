@@ -10,7 +10,6 @@ import 'swiper/css/pagination';
 import { Pagination, Autoplay } from 'swiper/modules';
 
 function Banner({activeChat}) {
-    console.log(activeChat);
     const slides = [banner1, banner2, banner1, banner1]; 
     const lastSlideIndex = slides.length - 1; // Get the last slide index
     const [currentIndex, setCurrentIndex] = useState(0);

@@ -12,7 +12,8 @@ function NewFeed({activeChat}){
             <div className="flex flex-col p-[20px] gap-[12px] w-full bg-[#ECF1F4]">
                 <Post activeChat={activeChat}/>
                 <Banner activeChat={activeChat}/>
-                <ShowPost/>
+                <ShowPost activeChat={activeChat}/>
+                <ShowPost activeChat={activeChat}/>
             </div>
             
         </section>
