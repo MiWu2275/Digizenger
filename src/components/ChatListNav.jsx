@@ -5,7 +5,7 @@ import toogleRight from "/images/toogle right.png"
 function ChatListNav({activeChat}){
 
     return(
-        <section className="flex justify-between items-center flex-shrink-0 py-[4px] px-[10px] bg-[#ECF1F4]">
+        <section className="flex justify-between items-center flex-shrink-0 py-[4px] px-[25px] bg-[#ECF1F4]">
             <div className="text-[28px] font-bold">
                 Message
             </div>

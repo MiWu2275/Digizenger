@@ -1,6 +1,7 @@
 import NewFeed from "./NewFeed";
 import ChatList from "./ChatListPage";
 import { useState } from "react";
+import ChatBox from "./ChatBoxPage";
 function Homepage (){
 
     const [activeChat, setActiveChat] = useState(false);
@@ -14,12 +15,12 @@ function Homepage (){
             <div>
                 <NewFeed activeChat={activeChat}/>
             </div>
-            <div onClick={columnHandle}>
-                <ChatList activeChat={activeChat}/>
+            <div >
+                <ChatList activeChat={activeChat} columnHandle={columnHandle}/>
             </div>
             {activeChat &&(
                 <div>
-                     <h1 className="bg-black text-[32px] font-semibold tracking-wide text-[#00BCD4]">Welcome To Digizenger</h1>
+                     <ChatBox/>
                 </div>
             )
 

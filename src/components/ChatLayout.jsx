@@ -2,14 +2,12 @@ import emma from '/images/Emma.jpg';
 import badges from '/images/Badges.png';
 import read from '/images/read.png';
 
-function ChatLayout({activeChat, chat}) {
-    if (!chat) {
-        console.error("Chat is undefined!");
-        return null; // Prevent rendering if chat is undefined
-    }
+
+function ChatLayout({activeChat, chat , activeChatRoomHandle}) {
+
     return (
-        <section>
-            <div className={activeChat ? "flex  items-start gap-[12px] px-[20px] py-[15px] bg-white" :"flex items-start gap-[12px] px-[30px] py-[15px] bg-white"}>
+        <section onClick={() => activeChatRoomHandle(chat.id)}>
+            <div className={activeChat ? "flex  items-start gap-[12px] px-[18px] py-[15px] bg-[#F8FCFD]" :"flex items-start gap-[12px] px-[26px] py-[15px] bg-[#F8FCFD]"}>
                 <div className='flex items-center gap-[12px]'>
                         <div className="flex items-center justify-center w-[48px] h-[48px]">
                             <img src={emma} className='w-[48px] h-[48px]'/>
