@@ -15,3 +15,7 @@
     border-color: aqua;
     transition: all 0.3s ease;
 }
+
+.scrollable::-webkit-scrollbar {
+    display: none; /* scrollbar ကို ဖျောက်မယ် */
+}

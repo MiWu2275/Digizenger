@@ -9,9 +9,10 @@ function NewFeed({activeChat}){
         <section>
             <NewFeedNav activeChat={activeChat}/>
             <MenuNav activeChat={activeChat}/>
-            <div className="flex flex-col p-[20px] gap-[12px] w-full bg-[#ECF1F4]">
+            <div className="flex flex-col p-[20px] gap-[12px] w-full bg-[#ECF1F4] h-[768px] overflow-y-auto scrollable">
                 <Post activeChat={activeChat}/>
                 <Banner activeChat={activeChat}/>
+                <ShowPost activeChat={activeChat}/>
                 <ShowPost activeChat={activeChat}/>
                 <ShowPost activeChat={activeChat}/>
             </div>

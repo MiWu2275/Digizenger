@@ -9,6 +9,8 @@ import SignInfo from './components/SignInfo';
 import RequestIdentity from './page/RequestIdentity';
 import VerifyEmail from './components/VerifyEmail';
 import Homepage from './page/Homepage';
+import { store } from './feature/store';
+import { Provider } from 'react-redux';
 
 function MainApp() {
   const location = useLocation();
@@ -40,9 +42,12 @@ function MainApp() {
 
 function App() {
   return (
-    <BrowserRouter>
-      <MainApp /> {/* Now useLocation works as BrowserRouter is in place */}
-    </BrowserRouter>
+   <Provider store={store}>
+        <BrowserRouter>
+            <MainApp /> {/* Now useLocation works as BrowserRouter is in place */}
+        </BrowserRouter>
+   </Provider>
+    
   );
 }
 

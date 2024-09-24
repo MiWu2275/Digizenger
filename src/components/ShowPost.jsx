@@ -9,7 +9,7 @@ import heart1 from '/images/heart1.png';
 import { useState } from 'react';
 
 function ShowPost({activeChat}) {
-    const [clickHeart, setClickHeart] =useState(false);
+    const [clickHeart, setClickHeart] =useState(true);
 
     const heartHandle = ()=>{
         setClickHeart(!clickHeart);
