@@ -1,10 +1,10 @@
 import ChatBoxLayout from "../components/ChatBoxLayout";
 import ChatBoxNav from "../components/ChatBoxNav";
 
-function ChatBox (){
+function ChatBox ({setActiveChat}){
     return(
         <section>
-            <ChatBoxNav/>
+            <ChatBoxNav setActiveChat={setActiveChat}/>
             <ChatBoxLayout/>
         </section>
         

@@ -20,10 +20,17 @@ const chatList = [
     {
         id: '2',
         title: 'Andrea', // Username
-        messages: [{id: '2',
+        messages: [{id: '1',
             content: "Have you eaten",
             sender: "user",
-            timestamp: "10PM", }],
+            timestamp: "10:00PM", },
+
+            {id: '2',
+                content: "No I'm Working",
+                sender: "server",
+                timestamp: "10:01PM", }
+        
+        ],
     },
     {
         id: '3',

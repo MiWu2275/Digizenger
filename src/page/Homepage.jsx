@@ -7,6 +7,9 @@ function Homepage (){
     const [activeChat, setActiveChat] = useState(false);
 
     const columnHandle =()=>{
+        if(activeChat === true){
+            return;
+        }
         setActiveChat(!activeChat);
     }
 
@@ -20,7 +23,7 @@ function Homepage (){
             </div>
             {activeChat &&(
                 <div>
-                     <ChatBox/>
+                     <ChatBox setActiveChat={setActiveChat}/>
                 </div>
             )
 

@@ -32,9 +32,7 @@ function ChatBoxLayout (){
                                 </div>
 
                                 {text.sender === "user" && (
-                                    <div className="w-[40px] h-[40px]">
-                                        <img src={andrea} alt="User Avatar" />
-                                    </div>
+                                    ""
                                 )}
                             </div> 
                             
