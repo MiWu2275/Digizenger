@@ -1,8 +1,13 @@
 import ChatBoxLayout from "../components/ChatBoxLayout";
+import ChatBoxNav from "../components/ChatBoxNav";
 
 function ChatBox (){
     return(
-        <ChatBoxLayout/>
+        <section>
+            <ChatBoxNav/>
+            <ChatBoxLayout/>
+        </section>
+        
     )
 }
 

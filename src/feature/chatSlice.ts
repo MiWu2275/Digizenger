@@ -6,6 +6,7 @@ import { RootState } from './store.ts'; // Adjust the import path according to y
 interface Message {
     id: string;
     content: string;
+    sender: string;
     timestamp: string; // or Date, depending on your preference
 }
 

@@ -4,7 +4,17 @@ const chatList = [
         title: 'Emma Noble', // Group name
         messages: [{id: '1',
             content: "Have you eaten",
-            timestamp: "10PM", }
+            sender: "server",
+            timestamp: "10:00PM", },
+            {id: '2',
+                content: "What Are You Doing",
+                sender: "server",
+                timestamp: "11:00PM", },
+
+            {id: '2',
+                content: "What Are You Doing",
+                sender: "user",
+                timestamp: "12:00PM", }
         ],
     },
     {
@@ -12,6 +22,7 @@ const chatList = [
         title: 'Andrea', // Username
         messages: [{id: '2',
             content: "Have you eaten",
+            sender: "user",
             timestamp: "10PM", }],
     },
     {
@@ -19,6 +30,7 @@ const chatList = [
         title: 'Ivan', // Custom label
         messages: [{id: '3',
             content: "Have you eaten",
+            sender: "server",
             timestamp: "10PM", }],
     },
     {
@@ -26,6 +38,7 @@ const chatList = [
         title: 'chalie', // Group name
         messages: [{id: '4',
             content: "Have you eaten",
+            sender: "server",
             timestamp: "10PM", }],
     },
     {
@@ -33,6 +46,7 @@ const chatList = [
         title: 'Diana', // Username
         messages: [{id: '5',
             content: "Have you eaten",
+            sender: "server",
             timestamp: "10PM", }],
     },
     {
@@ -40,6 +54,7 @@ const chatList = [
         title: 'Olivia', // Custom label
         messages: [{id: '6',
             content: "Have you eaten",
+            sender: "server",
             timestamp: "10PM", }],
     },
     {
@@ -47,6 +62,7 @@ const chatList = [
         title: 'Your Bob', // Group name
         messages: [{id: '7',
             content: "Have you eaten",
+            sender: "server",
             timestamp: "10PM", }],
     },
     {
@@ -54,6 +70,7 @@ const chatList = [
         title: 'William', // Username
         messages: [{id: '8',
             content: "Have you eaten",
+            sender: "server",
             timestamp: "10PM", }],
     },
     {
@@ -61,6 +78,7 @@ const chatList = [
         title: 'Jack', // Custom label
         messages: [{id: '9',
             content: "Have you eaten",
+            sender: "server",
             timestamp: "10PM", }],
     },  
       
@@ -69,6 +87,7 @@ const chatList = [
         title: 'Emma Noble', // Group name
         messages: [{id: '10',
             content: "Have you eaten",
+            sender: "server",
             timestamp: "10PM", }],
     },
     {
@@ -76,6 +95,7 @@ const chatList = [
         title: 'Andrea', // Username
         messages: [{id: '11',
             content: "Have you eaten",
+            sender: "server",
             timestamp: "10PM", }],
     },
     {
@@ -83,6 +103,7 @@ const chatList = [
         title: 'Ivan', // Custom label
         messages: [{id: '12',
             content: "Have you eaten",
+            sender: "server",
             timestamp: "10PM", }],
     },
 
