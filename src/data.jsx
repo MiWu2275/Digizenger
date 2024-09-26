@@ -11,7 +11,7 @@ const chatList = [
                 sender: "server",
                 timestamp: "11:00PM", },
 
-            {id: '2',
+            {id: '3',
                 content: "What Are You Doing",
                 sender: "user",
                 timestamp: "12:00PM", }
@@ -44,7 +44,7 @@ const chatList = [
         id: '4',
         title: 'chalie', // Group name
         messages: [{id: '4',
-            content: "Have you eaten",
+            content: "Good Morning",
             sender: "server",
             timestamp: "10PM", }],
     },
@@ -52,7 +52,7 @@ const chatList = [
         id: '5',
         title: 'Diana', // Username
         messages: [{id: '5',
-            content: "Have you eaten",
+            content: "Good Nignt",
             sender: "server",
             timestamp: "10PM", }],
     },
@@ -60,7 +60,7 @@ const chatList = [
         id: '6',
         title: 'Olivia', // Custom label
         messages: [{id: '6',
-            content: "Have you eaten",
+            content: "What!",
             sender: "server",
             timestamp: "10PM", }],
     },
