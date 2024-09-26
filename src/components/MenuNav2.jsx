@@ -4,7 +4,7 @@ import Digizen from "/images/digizen.png";
 import Profile from "/images/profile.png";
 function MenuNav({activeChat}){
     return(
-        <section className={activeChat ?"p-[15px]" : "px-[20px] py-[15px]"}>
+        <section className={activeChat ?"p-[15px] bg-white" : "px-[20px] py-[15px] bg-white"}>
             <ul className="flex flex-row w-full flex-wrap justify-start gap-[4px]">
                 <li className="flex flex-row hover:bg-red-100 gap-1 min-w-[50px] py-[8px] px-[18px] rounded-[20px] justify-center items-center">
                     <img className={activeChat ? "w-[15px] h-[15px]" : "w-[20px] h-[20px]"} src={HomeLogo} />

@@ -8,7 +8,7 @@ function ChatBoxNav({setActiveChat}) {
         console.log("hi")
     }
     return(
-            <section className="flex  items-center gap-[10px] px-[12px] bg-white border-b border-[#ECF1F4]">
+            <section className="flex  items-center gap-[10px] px-[12px] bg-white border-b border-[#ECF1F4] ">
                 <div className="flex flex-col relative w-[350px]">
                     <input type="text" className="rounded-[16px] py-[5px] bg-[#ECF1F4]"></input>
                     <div className="flex items-center gap-[10px] absolute top-[5px] left-[4px]">

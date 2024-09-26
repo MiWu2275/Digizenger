@@ -25,7 +25,7 @@ function ChatList({ activeChat, columnHandle }) {
             <div>
                 <ChatListNav />
                 <ChatListNav2 activeChat={activeChat} />
-                <div className="h-[768px] overflow-y-auto scrollable">
+                <div className="h-[690px] overflow-y-auto scrollable">
                     <div onClick={columnHandle}>
                         {chatList.map((chat) => (                            
                                 <ChatLayout

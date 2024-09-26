@@ -15,7 +15,8 @@
 }
 
 .scrollable::-webkit-scrollbar {
-    display: none; /* scrollbar ကို ဖျောက်မယ် */
+    display: none; 
+    flex-direction: column-reverse;
 }
 
 .chat-bg{
