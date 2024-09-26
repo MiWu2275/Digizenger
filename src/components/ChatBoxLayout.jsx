@@ -88,8 +88,8 @@ function ChatBoxLayout () {
     };
 
     return (
-        <main>
-            <section className="flex flex-col items-start pb-[100px] pt-[20px] chat-bg px-[20px] gap-[20px] h-[670px] relative overflow-y-auto scrollable">
+        <main >
+            <section className="flex flex-col items-start pt-[80px] chat-bg px-[20px] gap-[20px] h-[520px] relative overflow-y-auto scrollable">
                 {message.messages.map((text,index) => (
                     <main key={text.id} className={`flex flex-col w-full ${text.sender === "server" ? "sender" : "user"}`}>
                         <div className="chat-msg-container">

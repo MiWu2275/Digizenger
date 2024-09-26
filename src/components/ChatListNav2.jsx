@@ -2,8 +2,8 @@ import edit from '/images/edit.png';
 
 function ChatListNav2 ({activeChat}){
     return(
-        <section className={activeChat ?"flex items-center justify-between px-[10px] py-[18px] bg-[#F8FCFD]" : "flex items-center justify-between px-[20px] py-[15px] bg-[#F8FCFD]"}>
-            <ul className={activeChat ? "flex flex-row w-full flex-wrap justify-start" : "flex flex-row w-full flex-wrap justify-start gap-[2px]"}>
+        <section className={activeChat ?"flex items-center justify-between px-[10px] py-[20px] bg-[#F8FCFD] fixed mt-[51px] w-[26%] border-b border-[#ECF1F4]" : "flex items-center justify-between px-[20px] py-[15px] bg-[#F8FCFD] fixed mt-[51px] w-[50%]"}>
+            <ul className={activeChat ? "flex flex-row w-full flex-wrap justify-start" : "flex flex-row w-full flex-wrap justify-start gap-[8px]"}>
                 <li className={activeChat ?"flex flex-row hover:bg-red-100 gap-[1px] min-w-[30px] px-[2px] py-[4px] rounded-[15px] justify-center items-center" : "flex flex-row hover:bg-red-100 gap-[2px] min-w-[50px] px-[12px] py-[4px] rounded-[15px] justify-center items-center"}>
                     <span className={activeChat ? "text-[12px] font-medium text-[#7E7E8D]" : "text-[16px] font-medium text-[#7E7E8D]"}>All</span>
                 </li>
