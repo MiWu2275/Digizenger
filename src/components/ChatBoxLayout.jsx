@@ -9,7 +9,7 @@ import waveform from '/images/waveform.png';
 import emoji from '/images/emoji.png';
 import { useState, useRef, useEffect } from "react";
 import { FaCircleArrowUp } from "react-icons/fa6";
-import ChatBoxUserStatus from "./ChatBoxUserStatus";
+import ChatBoxUserStatusNav from "./ChatBoxUserStatusNav";
 
 function ChatBoxLayout () {
     const activeChatRoom = useAppSelector(selectActiveChatRoom);
@@ -90,7 +90,8 @@ function ChatBoxLayout () {
 
     return (
         <main >
-            <section className="flex flex-col items-start pt-[80px] chat-bg px-[20px] gap-[20px] h-[520px] relative overflow-y-auto scrollable">
+            <ChatBoxUserStatusNav message={message}/>
+            <section className="flex flex-col items-start pt-[150px] chat-bg px-[20px] gap-[20px] h-[530px] relative overflow-y-auto scrollable">
                 {message.messages.map((text,index) => (
                     <main key={text.id} className={`flex flex-col w-full ${text.sender === "server" ? "sender" : "user"}`}>
                         <div className="chat-msg-container">
@@ -122,7 +123,7 @@ function ChatBoxLayout () {
                     </main>
                 ))}
             </section>
-            <div className="bg-[#ECF1F4] w-full flex items-center h-[80px] gap-[10px] px-[10px]">
+            <div className="bg-[#ECF1F4] w-full flex items-center h-[70px] gap-[10px] px-[10px]">
                 <div className="flex items-center gap-[16px]">
                     <img src={pluse} className="w-[28px] h-[28px]" alt="Plus icon" />
                     <i onClick={handleIconClick}>

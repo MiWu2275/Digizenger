@@ -9,7 +9,7 @@ function MenuNav({activeChat}){
         setActiveButton(value);
     }
     return(
-        <section className={activeChat ?"p-[15px] w-[33.2%] z-20 bg-white absolute top-[50px]" : "px-[20px] py-[15px] z-20 bg-white fixed w-[49.9%] top-[50px]"}>
+        <section className={activeChat ?"p-[15px] w-[33.2%] z-20 bg-white absolute top-[49.3px]" : "px-[20px] py-[15px] z-20 bg-white fixed w-[49.9%] top-[50px]"}>
             <ul className="flex flex-row w-full flex-wrap justify-start gap-[4px]">
                 <li className={`flex flex-row hover:bg-[#ECF1F4] gap-1 min-w-[50px] py-[8px] px-[18px] rounded-[20px] justify-center items-center ${activeButton === "home" ? "bg-[#00BCD4]" : ""}`} onClick={()=>buttonHandle("home")}>
                     <img className={activeChat ? "w-[15px] h-[15px]" : "w-[20px] h-[20px]"} src={HomeLogo} />
