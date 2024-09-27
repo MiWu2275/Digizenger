@@ -1,11 +1,10 @@
-import toogle from "/images/Toogle.png";
 import toogleRight from "/images/toogle right.png"
 
 
 function ChatListNav({activeChat}){
 
     return(
-        <section className={activeChat ?  "flex justify-between items-center flex-shrink-0 py-[4px] px-[25px] bg-white border-b border-[#ECF1F4] fixed w-[26%]" : "flex justify-between items-center flex-shrink-0 py-[4px] px-[25px] bg-white border-b border-[#ECF1F4] fixed w-[50%]"}>
+        <section className={activeChat ?  "flex justify-between items-center flex-shrink-0 py-[4px] px-[25px] bg-white border-b border-[#ECF1F4] absolute " : "flex justify-between items-center flex-shrink-0 py-[4px] px-[25px] bg-white border-b border-[#ECF1F4] absolute w-[100%]"}>
             <div className="text-[28px] font-bold">
                 Message
             </div>

@@ -5,6 +5,7 @@ import { setChatList, setActiveChat, selectChatList, selectActiveChatRoom } from
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from '../hook/Hook.ts';
 import ChatListNav2 from "../components/ChatListNav2.jsx";
+import ChatListBottomNav from "../components/ChatListBottomNav.jsx";
 
 function ChatList({ activeChat, columnHandle }) {
     const dispatch = useAppDispatch();
@@ -21,10 +22,11 @@ function ChatList({ activeChat, columnHandle }) {
     };
 
     return (
-        <section >
-            <div>
+        <section className="relative">
+            <div className="relative">
                 <ChatListNav />
                 <ChatListNav2 activeChat={activeChat} />
+                <ChatListBottomNav/>
                 <div className="h-[600px] overflow-y-auto scrollable pt-[110px]">
                     <div onClick={columnHandle}>
                         {chatList.map((chat) => (                            
@@ -36,7 +38,10 @@ function ChatList({ activeChat, columnHandle }) {
                             />
                         ))}
                     </div>
+                    <ChatListBottomNav activeChat={activeChat}/>
                 </div>
+                
+                
             </div>
         </section>
     );

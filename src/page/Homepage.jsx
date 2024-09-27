@@ -19,7 +19,7 @@ function Homepage (){
                 <NewFeed activeChat={activeChat}/>
             </div>
             <div >
-                <ChatList activeChat={activeChat} columnHandle={columnHandle}/>
+                <ChatList activeChat={activeChat} columnHandle={columnHandle} className="relative"/>
             </div>
             {activeChat &&(
                 <div>

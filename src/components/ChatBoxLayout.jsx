@@ -9,6 +9,7 @@ import waveform from '/images/waveform.png';
 import emoji from '/images/emoji.png';
 import { useState, useRef, useEffect } from "react";
 import { FaCircleArrowUp } from "react-icons/fa6";
+import ChatBoxUserStatus from "./ChatBoxUserStatus";
 
 function ChatBoxLayout () {
     const activeChatRoom = useAppSelector(selectActiveChatRoom);

@@ -16,9 +16,7 @@ function MainApp() {
   const location = useLocation();
   const hideNav = ["/"];
   
-  // Create dynamic class based on current route
   const pageSpecificMargin = {
-     // Apply negative margin only for homepage
     "/login": "mt-[0px]",
     "/signup": "mt-[0px]",
     "/signup/verify": "mt-[0px]",
