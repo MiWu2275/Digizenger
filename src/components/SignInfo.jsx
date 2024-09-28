@@ -3,15 +3,33 @@ import { useState,  useEffect } from "react";
 import { IoIosCheckmark } from "react-icons/io";
 import { FaRegEyeSlash } from "react-icons/fa";
 import { FaRegEye } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import { useRegisterUserMutation } from "../api/Auth";
 
+const initialState ={
+    firstName: '',
+    lastName: '',
+    email: '',
+    dateOfBirth: '',
+    gender: '',
+    country: '',
+    city: '',
+    pass: '',
+    confirmPass: ''
+
+}
 
 function SignInfo() {
     const currentYear = new Date().getFullYear();
+    const [formValue, setFormValue] = useState(initialState);
     const [radioButton, setRadioButton] = useState();
     const [checked, setChecked] = useState(false);
     const [password, setpassword] = useState(false);
     const [confirmPassword, setConfirmPassword] = useState(false);
     const [inputBackground, setInputBackground] = useState();
+    const {firstName, lastName, email, dateOfBirth, gender, country, city, pass, confirmPass} = formValue;
+    const [registerUser, {data: registerData , isSuccess, isLoading ,isError}] = useRegisterUserMutation();
+    const navigate = useNavigate();
 
     const generateDays = () => Array.from({ length: 31 }, (_, i) => i + 1);
     const generateMonths = () => Array.from({ length: 12 }, (_, i) => i + 1);
@@ -22,7 +40,13 @@ function SignInfo() {
     const [selectedYear, setSelectedYear] = useState(currentYear);
 
     const radioHandle = (e) => {
-        setRadioButton(e.target.value)
+    const selectedGender = e.target.value;
+    setRadioButton(selectedGender);
+    setFormValue(prevForm => ({
+        ...prevForm,
+        gender: selectedGender // Update gender in formValue
+    }));
+
     }
 
     const checkHandle = (e) => {
@@ -40,12 +64,58 @@ function SignInfo() {
         }
     };
 
+    const formHandleChange = (e) =>{
+        setFormValue({...formValue, [e.target.name]: e.target.value});
+    }
+
+    const formSubmit = async(e) => {
+        e.preventDefault();
+        if(pass === confirmPass){
+            await registerUser(formValue);
+            if (response.data) {
+                console.log("Registration successful:", response.data);
+            } else {
+                console.error("Registration failed:", response.error); // Handle error response
+            }
+        }else{
+            console.log(isError);
+        }
+    } 
+    
+
+    useEffect(()=> {
+        if(isSuccess){
+            navigate("/");
+        }
+    },[isSuccess , navigate])
+
+    useEffect(() => {
+        if (isError) {
+            console.error("Registration failed:", registerData); // Adjust this based on your error handling
+        }
+    }, [isError]);
+
     const handleDateChange = (type, value) => {
-        const [day, month, year] = dateOfBirth.split('-').map(Number);
-        if (type === 'day') setInitialForm(prevForm => ({ ...prevForm, dateOfBirth: `${value}-${month}-${year}` }));
-        else if (type === 'month') setInitialForm(prevForm => ({ ...prevForm, dateOfBirth: `${day}-${value}-${year}` }));
-        else if (type === 'year') setInitialForm(prevForm => ({ ...prevForm, dateOfBirth: `${day}-${month}-${value}` }));
+        const [year, month, day] = dateOfBirth.split('-').map(Number);
+    
+        if (type === 'day') {
+            setFormValue(prevForm => ({
+                ...prevForm,
+                dateOfBirth: `${year}-${month}-${value}` // Update day
+            }));
+        } else if (type === 'month') {
+            setFormValue(prevForm => ({
+                ...prevForm,
+                dateOfBirth: `${year}-${value}-${day}` // Update month
+            }));
+        } else if (type === 'year') {
+            setFormValue(prevForm => ({
+                ...prevForm,
+                dateOfBirth: `${value}-${month}-${day}` // Update year
+            }));
+        }
     };
+    
 
     useEffect(() => {
         document.addEventListener('mousedown', handleClickOutside);
@@ -67,15 +137,17 @@ function SignInfo() {
                 </div>
         </div>
 
-        <div className="user_info_form_container  grid grid-cols-2 gap-2 px-4">
-            <form className="user_info_form1_container space-y-4 px-5 mt-4 ml-16 ">
+        <form className="user_info_form_container  grid grid-cols-2 gap-2 px-4" onSubmit={formSubmit}>
+            <div className="user_info_form1_container space-y-4 px-5 mt-4 ml-16 " >
                 <div className="user_info_input_container flex gap-4">
                     <div className="grid w-full">
                         <label className="block place-self-start text-slate-500 mb-[10px]">First Name:</label>
                         <input
                         type="text"
                         name="firstName"
+                        value={firstName}
                         onClick={()=> inputHandle("firstName")}
+                        onChange={formHandleChange}
                         className={`w-[150px] h-[40px] pl-[10px] outline-[#00BCD4] outline-[0.5px] rounded-[5px] bg-[#ECF1F4] ${inputBackground === "firstName" ? "bg-white" : ""}`}
                         />
                     </div>
@@ -84,7 +156,9 @@ function SignInfo() {
                         <input
                         type="text"
                         name="lastName"
+                        value={lastName}
                         onClick={()=> inputHandle("lastName")}
+                        onChange={formHandleChange}
                         className={`w-[150px] h-[40px] pl-[10px] outline-[#00BCD4] outline-[0.5px] rounded-[5px] bg-[#ECF1F4] ${inputBackground === "lastName"? "bg-white" : ""}`}
                         />
                     </div>
@@ -95,7 +169,9 @@ function SignInfo() {
                         <input
                             type="text"
                             name="email"
+                            value={email}
                             onClick={()=> inputHandle("email")}
+                            onChange={formHandleChange}
                             className={`w-[315px] h-[40px] pl-[10px] outline-[#00BCD4] outline-[0.5px] rounded-[5px] bg-[#ECF1F4] ${inputBackground === "email" ? "bg-white" : ""}`}
                         />
                 </div>
@@ -103,7 +179,7 @@ function SignInfo() {
                       <label className="block place-self-start text-slate-500 mb-[10px]">Date Of Birth:</label>
                       <div className="flex gap-3">
                           <div className="grid">
-                              <select id="options" name="options" className="w-[96.5px] h-[40px] px-[10px] border-2 border-[#ECF1F4] rounded-[5px] text-slate-400 " onChange={(e) => handleDateChange('day', e.target.value)}>
+                              <select id="day" name="day" value={dateOfBirth ? dateOfBirth.split('-')[2] : ''}  className="w-[96.5px] h-[40px] px-[10px] border-2 border-[#ECF1F4] rounded-[5px] text-slate-400 " onChange={(e) => handleDateChange('day', e.target.value)}>
                                     <option value="">Day</option>
                                     {generateDays().map((day) => (
                                     <option key={day} value={day}>{day}</option>
@@ -111,7 +187,7 @@ function SignInfo() {
                               </select>
                           </div>
                           <div className="">
-                              <select id="options" name="options" className="w-[96.5px] h-[40px] px-[10px] text-slate-400 rounded-[5px] border-2 border-[#ECF1F4]" onChange={(e) => handleDateChange('month', e.target.value)}>
+                              <select id="month" name="month" value={dateOfBirth ? dateOfBirth.split('-')[1] : ''}  className="w-[96.5px] h-[40px] px-[10px] text-slate-400 rounded-[5px] border-2 border-[#ECF1F4]" onChange={(e) => handleDateChange('month', e.target.value)}>
                                         <option value="">Month</option>
                                         {generateMonths().map((month) => (
                                         <option key={month} value={month}>{month}</option>
@@ -119,7 +195,7 @@ function SignInfo() {
                               </select>
                           </div>
                           <div className="">
-                              <select id="options" name="options" className="w-[96.5px] h-[40px] text-slate-400 rounded-[5px] px-[10px] border-2 border-[#ECF1F4]" onChange={(e) => handleDateChange('year', e.target.value)}>
+                              <select id="year" name="year" value={dateOfBirth ? dateOfBirth.split('-')[0] : ''} className="w-[96.5px] h-[40px] text-slate-400 rounded-[5px] px-[10px] border-2 border-[#ECF1F4]" onChange={(e) => handleDateChange('year', e.target.value)}>
                                         <option value="option1">Year</option>
                                         {generateYears().map((year) => (
                                         <option key={year} value={year}>{year}</option>
@@ -168,14 +244,14 @@ function SignInfo() {
                       </div>
                 </div>
 
-            </form>
+            </div>
 
 
-            <form className="user_info_form2_container space-y-4 px-5 mt-4">
+            <div className="user_info_form2_container space-y-4 px-5 mt-4" >
                 
                 <div className="grid">
                      <label className="block place-self-start text-slate-500 mb-[10px]">Country:</label>
-                     <select id="options" name="options" className="w-[315px] h-[40px] text-slate-400 rounded-[5px] px-[10px] pl-[10px] border-2 border-[#ECF1F4]">
+                     <select id="options" name="country" value={country} onChange={formHandleChange} className="w-[315px] h-[40px] text-slate-400 rounded-[5px] px-[10px] pl-[10px] border-2 border-[#ECF1F4]">
                                         <option value="option1">Thailand</option>
                                         <option value="option2">Option 2</option>
                                         <option value="option3">Option 3</option>
@@ -187,7 +263,9 @@ function SignInfo() {
                      <input
                           type="text"
                           name="city"
+                          value={city}
                           onClick={()=> inputHandle("city")}
+                          onChange={formHandleChange}
                           className={`w-[315px] h-[40px] pl-[10px] outline-[#00BCD4] outline-[0.5px] rounded-[5px] bg-[#ECF1F4] ${inputBackground === "city" ? "bg-white": ""}`}
                       />
                 </div>
@@ -195,7 +273,9 @@ function SignInfo() {
                      <label className="block place-self-start  text-slate-500 mb-[10px]">Password:</label>
                      <input
                           type={password ? "text" : "password"}
-                          name="lastName"
+                          name="pass"
+                          value={pass}
+                          onChange={formHandleChange}
                           className="w-[315px] h-[40px]  pl-[10px] outline-none rounded-[5px] bg-[#ECF1F4]"
                       />
                       {password ? 
@@ -217,7 +297,9 @@ function SignInfo() {
                      <label className="block place-self-start text-slate-500 mb-[10px]">Confirm Password:</label>
                      <input
                           type={confirmPassword ? "text" : "password"}
-                          name="lastName"
+                          name="confirmPass"
+                          value={confirmPass}
+                          onChange={formHandleChange}
                           className="w-[315px] h-[40px] pl-[10px] outline-none rounded-[5px] bg-[#ECF1F4]"
                       />
                       {confirmPassword ? 
@@ -235,9 +317,9 @@ function SignInfo() {
                             </button>)
                     }
                 </div>
-            </form>
+            </div>
 
-        </div>
+        </form>
         <div className="user_info_button_container flex flex-col justify-start mt-8 ml-[6.5rem] w-[645px]">
             <div className=" user_button_container text-left flex relative">
                 <input type="checkbox" id="agree" name="agree" onChange={checkHandle} className={`h-[20px] w-[35px] appearance-none mr-2 ${checked ? " bg-[#00BCD4] ": "bg-[#ECF1F4] "} cursor-pointer `} />
@@ -248,8 +330,8 @@ function SignInfo() {
                 </div>
                 <label htmlFor="agree" className="user_info_agree text-[#8C8CA1] ml-2  text-left">By singing up,you accept our terms,privacy policy and cookie policy. policy and cookie policy.policy and cookie policy</label>
             </div>
-              <button className="w-[315px] user_info_button px-14 py-1 mt-[20px] text-lg  font-semibold  bg-[#0097A7] text-white rounded-md">
-                <Link to="/signup/verify" className=" flex items-center justify-center w-full  h-full">Sign Up</Link>
+              <button type="submit"  className="w-[315px] user_info_button px-14 py-1 mt-[20px] text-lg  font-semibold  bg-[#0097A7] text-white rounded-md">
+                <Link to="" className=" flex items-center justify-center w-full  h-full">Sign Up</Link>
               </button>
             
         </div>

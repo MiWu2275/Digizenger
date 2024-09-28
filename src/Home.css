@@ -4,7 +4,43 @@
     background-color: red;
     border-color: aqua;
     transition: all 0.3s ease;
+    height: 945px;
 
+}
+
+@media (max-width: 1440px) 
+{
+    .homepage_container{
+        height: 600px;
+    }
+    .chat-layout-responsive{
+        height: 530px !important;
+    }
+    .chat-list-responsive{
+        height: 600px !important;
+    }
+    .newfeed-responsive{
+        height: 600px !important;
+    }
+    .logo-nav-big-screen{
+        width: 49.9% !important;
+    }
+    .logo-nav-small-screen{
+        width: 33.2% !important;
+    }
+    .menu-small-screen{
+        width: 33.2% !important;
+    }
+    .menu-big-screen{
+        width: 49.9% !important;
+    }
+    .chat-box-nav-responsive{
+        width: 41.6% !important;
+    }
+    .chat-box-nav2-responsive{
+        width: 41.6% !important;
+    }
+    
 }
 .homepage_container_without_chat_room{
     display: grid;

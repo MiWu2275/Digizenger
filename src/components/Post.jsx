@@ -1,4 +1,4 @@
-import React, { useRef , useState } from 'react';
+import React, { useRef , useState, useEffect } from 'react';
 import john from '/images/john doe.jpg';
 import active from '/images/active.jpg';
 import mark from '/images/mark.jpg';
@@ -9,7 +9,38 @@ import { PiGif } from "react-icons/pi";
 function Post({activeChat}) {
     const [isButtonDisabled, setIsButtonDisabled] = useState(true);
     const [showMedia , setShowMedia] = useState(false);
+    const [image, setImage] = useState(null);
+    const [isEditing, setIsEditing] = useState(false);
+    const uploadRef = useRef(null);
 
+    const uploadImage = () => {
+        if (uploadRef.current){
+            if (!isEditing) {
+                // Only reset the input value when uploading a new image, not during editing
+                uploadRef.current.value = "";  
+            }
+            uploadRef.current.click();  // Trigger the file input dialog
+        }else{
+            console.log("ref is null")
+        }
+    }
+
+    const handleImageUpload = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => {
+                setImage(reader.result);
+
+            };
+            
+        }
+    }
+
+    useEffect(() => {
+        console.log("uploadRef.current:", uploadRef.current);
+    }, []);
 
     const handleInput = (e) => {
         const target = e.target;
@@ -33,7 +64,7 @@ function Post({activeChat}) {
                         
                         <div className="flex items-start justify-between">
 
-                            <div className={activeChat ? "flex gap-[8px] w-[320px]" : "flex w-[450px] gap-[15px]"}>
+                            <div className={activeChat ? "flex gap-[8px] w-[320px]" : "flex w-[550px] gap-[15px]"}>
 
                                 <div className="w-[38px] h-[38px]">
                                     <img src={john} alt="John" />
@@ -102,10 +133,21 @@ function Post({activeChat}) {
 
                                 <div className='flex flex-col gap-[5px]'>
                                     <div className='w-[330px] h-[1px] bg-[#ECF1F4]'></div>
-                                    <div className='flex gap-[10px]'>
-                                        <i><GoImage size={25} className='text-[#0097A7]'/></i>
+
+                                    {image ?
+                                    (<div>
+                                        <img src={image} className='w-[500px] h-[300px]'/>
+                                        <button  className='ml-2 text-red-500'>Delete</button>
+                                        <button onClick={ uploadImage} className='ml-2 text-blue-500'>Edit</button>
+                                    </div>) : 
+                                    (<div className='flex gap-[10px]'>
+                                        <i onClick={uploadImage}><GoImage size={25} className='text-[#0097A7]'/></i>
+                                        <input ref={uploadRef} type='file' className='hidden' onChange={handleImageUpload}/>
                                         <i><PiGif size={25} className='text-[#0097A7]'/></i>
-                                    </div>
+                                    </div>)
+                                    
+                                    }
+                                    
                                 </div>
                             </div>
                         }

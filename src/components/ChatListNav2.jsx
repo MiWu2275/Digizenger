@@ -9,7 +9,7 @@ function ChatListNav2({ activeChat }) {
     };
 
     return (
-        <section className={activeChat ? "flex items-center justify-between px-[10px] py-[20px] bg-[#F8FCFD] absolute mt-[50.1px] w-[100%] border-b border-[#ECF1F4]" : "flex items-center justify-between px-[20px] py-[15px] bg-[#F8FCFD] fixed mt-[50.1px] w-[50%]"}>
+        <section className={activeChat ? "flex items-center justify-between px-[10px] py-[20px] bg-[#F8FCFD] absolute mt-[50.1px] w-[100%] border-b border-[#ECF1F4]" : "flex items-center justify-between px-[20px] py-[15px] bg-[#F8FCFD] absolute mt-[50.1px] w-[100%]"}>
             <ul className={activeChat ? "flex flex-row flex-wrap justify-start " : "flex flex-row w-full flex-wrap justify-start gap-[15px]"}>
                 {["all", "read", "unread", "archived", "group", "family"].map((item) => (
                     <li 
