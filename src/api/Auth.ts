@@ -8,11 +8,11 @@ export const authApi = createApi ({
     }),
     endpoints: (builder)=>({
         registerUser: builder.mutation ({
-            query : (formValue) =>{
+            query : ({firstName,lastName,email,password,phone,gender,country,city}) =>{
                 return{
                     url : '/auth/register',
                     method: 'post',
-                    body : JSON.stringify(formValue),
+                    body : JSON.stringify({firstName,lastName,email,password,phone,gender,country,city}),
                     headers:{
                         'Content-Type' : 'application/json'
                     }
@@ -39,8 +39,20 @@ export const authApi = createApi ({
               method: 'POST',
               body: credentials,
             }},
-    })
+        }),
+
+        resendCode: builder.mutation({
+            query: (emailOrPhone) =>{
+                return{
+                    url:`resend-code?emailOrPhone=${emailOrPhone}`,
+                    method: 'put',
+                    headers:{
+                        'Contdnt-type' : 'application/json'
+                    }
+                }
+            }
+        })
 })
 })
 
-export const {useRegisterUserMutation , useVerifyEmailOrPhoneMutation ,useLoginUserMutation } = authApi;
+export const {useRegisterUserMutation , useVerifyEmailOrPhoneMutation ,useLoginUserMutation , useResendCodeMutation} = authApi;

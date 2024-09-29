@@ -7,9 +7,11 @@ import flick from '/images/flick.png';
 import graph from '/images/graph.png';
 import heart1 from '/images/heart1.png';
 import { useState } from 'react';
+import { useGetPostQuery } from '../api/Post';
 
 function ShowPost({activeChat}) {
     const [clickHeart, setClickHeart] =useState(true);
+
 
     const heartHandle = ()=>{
         setClickHeart(!clickHeart);

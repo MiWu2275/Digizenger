@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import banner1 from '/images/banner 1.png';
 import banner2 from '/images/banner 2.png';
@@ -6,6 +6,7 @@ import john from '/images/john doe.jpg';
 import mark from '/images/mark.jpg'
 import 'swiper/css';
 import 'swiper/css/pagination';
+import AutoplayProgress from './AutoProgressBar';
 
 import { Pagination, Autoplay } from 'swiper/modules';
 
@@ -13,6 +14,15 @@ function Banner({activeChat}) {
     const slides = [banner1, banner2, banner1, banner1]; 
     const lastSlideIndex = slides.length - 1; // Get the last slide index
     const [currentIndex, setCurrentIndex] = useState(0);
+    const progressContent = useRef(null);
+
+    const [timeLeft, setTimeLeft] = useState(0);
+    const [progress, setProgress] = useState(1);
+  
+    const onAutoplayTimeLeft = (s, time, autoplayProgress) => {
+      setTimeLeft(time);
+      setProgress(1 - autoplayProgress);
+    };
 
     return (
         <section>
@@ -20,13 +30,14 @@ function Banner({activeChat}) {
                 slidesPerView={1}
                 spaceBetween={10}
                 autoplay={{
-                    delay: 2500,
+                    delay: 4000,
                     disableOnInteraction: false,
                 }}
                 // pagination={{
                 //     clickable: true,
                 // }}
                 modules={[Autoplay]}
+                onAutoplayTimeLeft={onAutoplayTimeLeft}
                 className="flex flex-col items-center justify-end rounded-[8px] self-stretch"
                 onSlideChange={(swiper) => setCurrentIndex(swiper.activeIndex)} // Update current index
                 style={{
@@ -55,8 +66,11 @@ function Banner({activeChat}) {
 
                             </div>
                         </div>
+                        <AutoplayProgress progress={progress} ref={progressContent} timeLeft={timeLeft} />
                     </SwiperSlide>
+                    
                 ))}
+
             </Swiper>
         </section>
     );

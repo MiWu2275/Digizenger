@@ -5,17 +5,22 @@ export const postUploadSlice = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: 'http://digizenger.org/digizenger/api/v1' }),
   endpoints: (builder) => ({
     uploadPost: builder.mutation({
-      query: (post) => ({
+      query: (postData) => ({
         url: '/posts/upload',
         method: 'POST',
-        body: post,
+        body: postData,
         headers: {
           'Content-Type': 'application/json',
         },
       }),
     }),
+    getPost : builder.query({
+      query : ({pageCount}) => ({
+        url :`posts/getPost?_page=${pageCount}&_limit=10`,
+      })
+    })
   }),
 });
 
 
-export const { useUploadPostMutation } = postUploadSlice;
+export const { useUploadPostMutation, useGetPostQuery } = postUploadSlice;

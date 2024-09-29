@@ -8,6 +8,39 @@
 
 }
 
+@media (max-width:1536px) {
+    .homepage_container{
+        height: 800px !important;
+    }
+    .chat-layout-responsive{
+        height: 730px !important;
+    }
+    .chat-list-responsive{
+        height: 800px !important;
+    }
+    .newfeed-responsive{
+        height: 800px !important;
+    }
+    .logo-nav-big-screen{
+        width: 45.5% !important;
+    }
+    .logo-nav-small-screen{
+        width: 30.3% !important;
+    }
+    .menu-big-screen{
+        width: 45.4%!important;
+    }
+    .menu-small-screen{
+        width: 30.2% !important;
+    }
+    .chat-box-nav-responsive{
+        width: 38% !important;
+    }
+    .chat-box-nav2-responsive{
+        width: 38% !important;
+    }
+}
+
 @media (max-width: 1440px) 
 {
     .homepage_container{

@@ -9,11 +9,13 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
+  "proxy": "http://digizenger.org",
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.7",
     "antd": "^5.20.1",
     "caniuse-lite": "^1.0.30001662",
     "emailjs-com": "^3.2.0",
+    "http-proxy-middleware": "^3.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-google-recaptcha": "^3.1.0",

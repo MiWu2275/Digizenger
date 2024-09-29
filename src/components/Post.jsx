@@ -6,6 +6,7 @@ import publicIcon from '/images/public.png';
 import { GoImage } from "react-icons/go";
 import { PiGif } from "react-icons/pi";
 import { useUploadPostMutation } from '../api/Post';
+import { FaUsers, FaHome, FaUserFriends } from "react-icons/fa";
 
 
 function Post({activeChat}) {
@@ -16,6 +17,31 @@ function Post({activeChat}) {
     const [isEditing, setIsEditing] = useState(false);
     const uploadRef = useRef(null);
     const [uploadPost] = useUploadPostMutation();
+    const [postStatus, setPostStatus] = useState(false);
+    const [selectedAudience, setSelectedAudience] = useState('Everyone');
+
+    console.log(typeof image)
+    const handleAudienceSelect = (audience) => {
+        setSelectedAudience(audience); 
+        setPostStatus(false); 
+    };
+
+    const getAudienceIcon = (audience) => {
+        switch (audience) {
+            case 'Everyone':
+                return <FaUsers className='w-[16px] h-[16px] text-[#0097A7]' />;
+            case 'Neighbor':
+                return <FaHome className='w-[16px] h-[16px] text-[#0097A7]' />;
+            case 'Follower':
+                return <FaUserFriends className='w-[16px] h-[16px] text-[#0097A7]' />;
+            default:
+                return null;
+        }
+    };
+
+    const handlePostStatus = () => {
+        setPostStatus(!postStatus)
+    }
 
     const uploadImage = () => {
         if (uploadRef.current){
@@ -63,8 +89,7 @@ function Post({activeChat}) {
         const postData = {
             content: content,
             isPublic: true,
-            media: image ? 
-            [{ mediaUrl: image, mediaType: "IMAGE" }] : [],
+            media: image ? [{ mediaUrl: URL.createObjectURL(image), mediaType: "IMAGE" }] : [],
             
         };
 
@@ -126,10 +151,34 @@ function Post({activeChat}) {
                             <div className='flex gap-[12px]'>
                                 <div className='w-[32px] h-[14px]'></div>
 
-                                <div className='flex gap-[4px] items-center'>
-                                    <img src={publicIcon} className='w-[16px] h-[16px]' alt="Public Icon" />
-                                    <span className='text-[14px] text-[#0097A7] font-medium leading-5'>Everyone</span>
+                                <div className='flex gap-[4px] items-center pointer' onClick={handlePostStatus}>
+                                    {getAudienceIcon(selectedAudience)}
+                                    <span className='text-[14px] text-[#0097A7] font-medium leading-5'>{selectedAudience}</span>
                                 </div>
+
+                                {postStatus &&(
+                                    <div className='flex flex-col gap-[10px] absolute items-start bg-[#ECF1F4] left-20 top-200 z-20 p-[20px] w-[300px]'>
+                                        <span>Who can see you post?</span>
+                                        <span>Choose who can see your post.<br /></span>
+                                        <span className='text-left'>Everyone you mentioned in the post can still see it.</span>
+                                        <div className='flex flex-col gap-[5px]'>
+                                            <div className='flex gap-[5px]' onClick={() => handleAudienceSelect('Everyone')}>
+                                                <img src={publicIcon} className='w-[16px] h-[16px]' alt="Public Icon" />
+                                                <span className='text-[14px] text-[#0097A7] font-medium leading-5'>Everyone</span>
+                                            </div>
+                                            <div className='flex gap-[5px]' onClick={() => handleAudienceSelect('Neighbor')}>
+                                                <img src={publicIcon} className='w-[16px] h-[16px]' alt="Public Icon" />
+                                                <span className='text-[14px] text-[#0097A7] font-medium leading-5'>Neighbor</span>
+                                            </div>
+                                            <div className='flex gap-[5px]'onClick={() => handleAudienceSelect('Follower')}>
+                                                <img src={publicIcon} className='w-[16px] h-[16px]' alt="Public Icon" />
+                                                <span className='text-[14px] text-[#0097A7] font-medium leading-5'>Follower</span>
+                                            </div>
+                                        
+                                        </div>
+
+                                    </div>
+                            )}
 
                             </div>
 
@@ -160,8 +209,8 @@ function Post({activeChat}) {
                                     {image ?
                                     (<div>
                                         <img src={image} className='w-[500px] h-[300px]'/>
-                                        <button  className='ml-2 text-red-500'>Delete</button>
-                                        <button onClick={ uploadImage} className='ml-2 text-blue-500'>Edit</button>
+                                        {/* <button  className='ml-2 text-red-500'>Delete</button>
+                                        <button onClick={ uploadImage} className='ml-2 text-blue-500'>Edit</button> */}
                                     </div>) : 
                                     (<div className='flex gap-[10px]'>
                                         <i onClick={uploadImage}><GoImage size={25} className='text-[#0097A7]'/></i>

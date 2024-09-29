@@ -93,7 +93,12 @@ function SignInfo() {
     const formSubmit = async(e) => {
         e.preventDefault();
         console.log("it work")
+
+        if(isEmail){ 
         dispatch(setEmailOrPhone({email: email, phone:null}))
+        }else{
+            dispatch(setEmailOrPhone({email:null, phone: phone}))
+        }
 
         if (password === confirmPass) {
             try {

@@ -54,8 +54,19 @@ function VerifyEmail (){
             console.error("Verification failed:", error);
         }
 
-}
+    }
 };
+
+    const handleResendCode = async () => {
+        try {
+            const response = await resendCode(email).unwrap();
+            console.log("Resend code successful" , response);
+            setTimer(60); // Reset timer
+            setTimeOut(false);
+        } catch (error) {
+            console.error("Failed to resend code:", error);
+        }
+    };
 
     return(
         <section className="flex justify-center pt-[100px]">
@@ -82,10 +93,10 @@ function VerifyEmail (){
                 </div>
                 <p style={{ color: isTimeOut ? "red" : "black" }}>
                     {isTimeOut
-                        ? "Time is up. Please request a new code."
+                        ? <span>Time is up. <button onClick={handleResendCode} className="text-blue-500">Resend Code</button></span>
                         : `Time remaining: ${timeFormat(timer)}`}
                 </p>
-                <Link to="/">
+                <Link to="/login">
                     <button className="bg-[#0097A7] w-full text-white py-2 px-6 rounded-lg mt-4">
                         Continue
                     </button>

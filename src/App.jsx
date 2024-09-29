@@ -11,6 +11,7 @@ import VerifyEmail from './components/VerifyEmail';
 import Homepage from './page/Homepage';
 import { store } from './feature/store';
 import { Provider } from 'react-redux';
+import ApiFetchExample  from './ApiFetch';
 
 function MainApp() {
   const location = useLocation();
@@ -43,6 +44,7 @@ function App() {
    <Provider store={store}>
         <BrowserRouter>
             <MainApp /> {/* Now useLocation works as BrowserRouter is in place */}
+            <ApiFetchExample/>
         </BrowserRouter>
    </Provider>
     
