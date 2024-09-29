@@ -5,21 +5,24 @@ import mark from '/images/mark.jpg';
 import publicIcon from '/images/public.png';
 import { GoImage } from "react-icons/go";
 import { PiGif } from "react-icons/pi";
+import { useUploadPostMutation } from '../api/Post';
+
 
 function Post({activeChat}) {
     const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+    const [content, setContent] = useState('');
     const [showMedia , setShowMedia] = useState(false);
     const [image, setImage] = useState(null);
     const [isEditing, setIsEditing] = useState(false);
     const uploadRef = useRef(null);
+    const [uploadPost] = useUploadPostMutation();
 
     const uploadImage = () => {
         if (uploadRef.current){
             if (!isEditing) {
-                // Only reset the input value when uploading a new image, not during editing
                 uploadRef.current.value = "";  
             }
-            uploadRef.current.click();  // Trigger the file input dialog
+            uploadRef.current.click();  
         }else{
             console.log("ref is null")
         }
@@ -50,9 +53,29 @@ function Post({activeChat}) {
         } else {
             target.style.height = `${target.scrollHeight}px`; // Set to scroll height
         }
-
+        
+        setContent(target.value);
         setIsButtonDisabled(target.value.trim() === '');
         console.log("it work")
+    };
+
+    const handlePostSubmit = async () => {
+        const postData = {
+            content: content,
+            isPublic: true,
+            media: image ? 
+            [{ mediaUrl: image, mediaType: "IMAGE" }] : [],
+            
+        };
+
+        try {
+            const result = await uploadPost(postData).unwrap();
+            console.log("Post uploaded successfully:", result);
+            setContent('');
+            setImage(null);
+        } catch (error) {
+            console.error("Failed to upload post:", error);
+        }
     };
 
     return (

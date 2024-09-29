@@ -1,4 +1,3 @@
-// features/chatSlice.ts
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from './store.ts'; // Adjust the import path according to your project structure
 

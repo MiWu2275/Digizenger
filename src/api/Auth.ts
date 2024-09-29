@@ -1,37 +1,38 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
 
+
 export const authApi = createApi ({
     reducerPath: "authApi",
     baseQuery : fetchBaseQuery({
         baseUrl :"http://digizenger.org/digizenger/api/v1"
     }),
     endpoints: (builder)=>({
-        // loginUser : builder.mutation({
-        //     query: (body :{eamil:string,password:string}) =>{
-        //         return{
-        //             url: '',
-        //             method: '',
-        //             body : JSON.stringify(body),
-        //             headers : {
-        //                 'Content-Type' : 'application/json'
-        //             }
-        //         }
-        //     }
-        // }),
-
         registerUser: builder.mutation ({
             query : (formValue) =>{
                 return{
                     url : '/auth/register',
-                    method: '',
+                    method: 'post',
                     body : JSON.stringify(formValue),
                     headers:{
-                        'Content-Type' : 'applicaton/json'
+                        'Content-Type' : 'application/json'
                     }
                 }
             }
+        }),
+        verifyEmailOrPhone: builder.mutation ({
+            query : ({emailOrPhone,otp}) => {
+                return{
+                method: 'put',
+                url: '/auth/verify-account?emailOrPhone=htetphyoemaung3363@gmail.com&otp=158103',
+                body: JSON.stringify({ emailOrPhone, otp }), 
+                headers:{
+                    'Content-type' : 'application/json'
+                }
+            }
+            }
+
         })
     })
 })
 
-export const {useRegisterUserMutation} = authApi;
+export const {useRegisterUserMutation , useVerifyEmailOrPhoneMutation} = authApi;

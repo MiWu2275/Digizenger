@@ -1,11 +1,17 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useVerifyEmailOrPhoneMutation } from "../api/Auth";
+import { useAppSelector } from "../hook/Hook";
+import { selectEmail } from "../feature/authSlice";
+
 
 function VerifyEmail (){
 
     const [code, setCode] = useState("");
     const [isTimeOut, setTimeOut] =useState(false);
     const [timer, setTimer] = useState("60");
+    const [verifyEmailOrPhone] = useVerifyEmailOrPhoneMutation();
+    const email = useAppSelector(selectEmail);
 
 
   useEffect(()=>{
@@ -38,6 +44,18 @@ function VerifyEmail (){
     maskedCode += " - ".repeat(6 - code.length).trim();
     return maskedCode;
   };
+
+  const handleVerify = async () => {
+    if(code){
+        try {
+            const result = await verifyEmailOrPhone({ emailOrPhone: email, otp: code }).unwrap();
+            console.log("Verification successful:", result);
+        } catch (error) {
+            console.error("Verification failed:", error);
+        }
+
+}
+};
 
     return(
         <section className="flex justify-center pt-[100px]">

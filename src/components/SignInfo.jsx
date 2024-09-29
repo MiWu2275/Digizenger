@@ -5,31 +5,39 @@ import { FaRegEyeSlash } from "react-icons/fa";
 import { FaRegEye } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useRegisterUserMutation } from "../api/Auth";
+import { useAppDispatch, useAppSelector } from '../hook/Hook.ts';
+import { setEmailOrPhone , selectEmail} from "../feature/authSlice.ts";
 
 const initialState ={
     firstName: '',
     lastName: '',
     email: '',
+    password: '',
+    phone: '',
     dateOfBirth: '',
     gender: '',
     country: '',
     city: '',
-    pass: '',
-    confirmPass: ''
-
+    confirmPass: '',
+    
 }
 
 function SignInfo() {
     const currentYear = new Date().getFullYear();
+    const [inputValue, setInputValue] = useState('');
     const [formValue, setFormValue] = useState(initialState);
     const [radioButton, setRadioButton] = useState();
     const [checked, setChecked] = useState(false);
-    const [password, setpassword] = useState(false);
+    const [ispassword, setpassword] = useState(false);
     const [confirmPassword, setConfirmPassword] = useState(false);
     const [inputBackground, setInputBackground] = useState();
-    const {firstName, lastName, email, dateOfBirth, gender, country, city, pass, confirmPass} = formValue;
+    const {firstName, lastName, email, phone, dateOfBirth, gender, country, city, password, confirmPass} = formValue;
     const [registerUser, {data: registerData , isSuccess, isLoading ,isError}] = useRegisterUserMutation();
     const navigate = useNavigate();
+    const dispatch = useAppDispatch();
+    const emailValue = useAppSelector(selectEmail);
+    console.log(emailValue)
+    
 
     const generateDays = () => Array.from({ length: 31 }, (_, i) => i + 1);
     const generateMonths = () => Array.from({ length: 12 }, (_, i) => i + 1);
@@ -38,6 +46,17 @@ function SignInfo() {
     const [selectedDay, setSelectedDay] = useState('');
     const [selectedMonth, setSelectedMonth] = useState('');
     const [selectedYear, setSelectedYear] = useState(currentYear);
+    console.log(formValue)
+
+    function isEmail(input) {
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailPattern.test(input);
+      }
+    
+      function isPhoneNumber(input) {
+        const phonePattern = /^\+?[0-9]{7,15}$/; // Adjust this regex for your use case
+        return phonePattern.test(input);
+      }
 
     const radioHandle = (e) => {
     const selectedGender = e.target.value;
@@ -65,27 +84,36 @@ function SignInfo() {
     };
 
     const formHandleChange = (e) =>{
-        setFormValue({...formValue, [e.target.name]: e.target.value});
+        setFormValue({...formValue, [e.target.name]: e.target.value, 
+            phone: isPhoneNumber(inputValue) ? inputValue : '',
+            email: isEmail(inputValue) ? inputValue : '',
+        });
     }
 
     const formSubmit = async(e) => {
         e.preventDefault();
-        if(pass === confirmPass){
-            await registerUser(formValue);
-            if (response.data) {
-                console.log("Registration successful:", response.data);
-            } else {
-                console.error("Registration failed:", response.error); // Handle error response
+        console.log("it work")
+        dispatch(setEmailOrPhone({email: email, phone:null}))
+
+        if (password === confirmPass) {
+            try {
+                const response = await registerUser({firstName,lastName,email,password,phone,gender,country,city}).unwrap(); // Call the mutation
+                console.log("Registration successful:", response);
+                if (response.data) {
+                    // Handle success, like navigating to a new page
+                }
+            } catch (error) {
+                console.error("Registra failed:", error); // Handle error response
             }
-        }else{
-            console.log(isError);
+        } else {
+            console.log("Passwords do not match.");
         }
     } 
     
 
     useEffect(()=> {
         if(isSuccess){
-            navigate("/");
+            navigate("/login");
         }
     },[isSuccess , navigate])
 
@@ -96,24 +124,24 @@ function SignInfo() {
     }, [isError]);
 
     const handleDateChange = (type, value) => {
-        const [year, month, day] = dateOfBirth.split('-').map(Number);
+        const [year = '', month = '', day = ''] = dateOfBirth.split('-');
     
-        if (type === 'day') {
-            setFormValue(prevForm => ({
-                ...prevForm,
-                dateOfBirth: `${year}-${month}-${value}` // Update day
-            }));
-        } else if (type === 'month') {
-            setFormValue(prevForm => ({
-                ...prevForm,
-                dateOfBirth: `${year}-${value}-${day}` // Update month
-            }));
-        } else if (type === 'year') {
-            setFormValue(prevForm => ({
-                ...prevForm,
-                dateOfBirth: `${value}-${month}-${day}` // Update year
-            }));
-        }
+    if (type === 'day') {
+        setFormValue(prevForm => ({
+            ...prevForm,
+            dateOfBirth: `${year || ''}-${month || ''}-${value}` // Ensure day is updated correctly
+        }));
+    } else if (type === 'month') {
+        setFormValue(prevForm => ({
+            ...prevForm,
+            dateOfBirth: `${year || ''}-${value}-${day || ''}` // Ensure month is updated correctly
+        }));
+    } else if (type === 'year') {
+        setFormValue(prevForm => ({
+            ...prevForm,
+            dateOfBirth: `${value}-${month || ''}-${day || ''}` // Ensure year is updated correctly
+        }));
+    }
     };
     
 
@@ -137,7 +165,7 @@ function SignInfo() {
                 </div>
         </div>
 
-        <form className="user_info_form_container  grid grid-cols-2 gap-2 px-4" onSubmit={formSubmit}>
+        <form className="user_info_form_container  grid grid-cols-2 gap-2 px-4" >
             <div className="user_info_form1_container space-y-4 px-5 mt-4 ml-16 " >
                 <div className="user_info_input_container flex gap-4">
                     <div className="grid w-full">
@@ -169,9 +197,9 @@ function SignInfo() {
                         <input
                             type="text"
                             name="email"
-                            value={email}
+                            value={inputValue}
                             onClick={()=> inputHandle("email")}
-                            onChange={formHandleChange}
+                            onChange={(e) => {setInputValue(e.target.value); formHandleChange(e)}}
                             className={`w-[315px] h-[40px] pl-[10px] outline-[#00BCD4] outline-[0.5px] rounded-[5px] bg-[#ECF1F4] ${inputBackground === "email" ? "bg-white" : ""}`}
                         />
                 </div>
@@ -273,12 +301,12 @@ function SignInfo() {
                      <label className="block place-self-start  text-slate-500 mb-[10px]">Password:</label>
                      <input
                           type={password ? "text" : "password"}
-                          name="pass"
-                          value={pass}
+                          name="password"
+                          value={password}
                           onChange={formHandleChange}
                           className="w-[315px] h-[40px]  pl-[10px] outline-none rounded-[5px] bg-[#ECF1F4]"
                       />
-                      {password ? 
+                      {ispassword ? 
                             (<button className="eye1 absolute top-[3rem] left-[17.5rem]" 
                             onClick={(e)=> {
                             e.preventDefault();
@@ -330,8 +358,8 @@ function SignInfo() {
                 </div>
                 <label htmlFor="agree" className="user_info_agree text-[#8C8CA1] ml-2  text-left">By singing up,you accept our terms,privacy policy and cookie policy. policy and cookie policy.policy and cookie policy</label>
             </div>
-              <button type="submit"  className="w-[315px] user_info_button px-14 py-1 mt-[20px] text-lg  font-semibold  bg-[#0097A7] text-white rounded-md">
-                <Link to="" className=" flex items-center justify-center w-full  h-full">Sign Up</Link>
+              <button type="submit" onClick={formSubmit} className="w-[315px] user_info_button px-14 py-1 mt-[20px] text-lg  font-semibold  bg-[#0097A7] text-white rounded-md">
+                <span className=" flex items-center justify-center w-full  h-full">Sign Up</span>
               </button>
             
         </div>
