@@ -5,6 +5,8 @@ import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input'
 import { FaRegEyeSlash } from "react-icons/fa";
 import { FaRegEye } from "react-icons/fa";
+import { useLoginUserMutation } from "../api/Auth";
+import { useNavigate } from "react-router-dom";
 
 
 function Login() {
@@ -13,6 +15,8 @@ function Login() {
   const [recaptcha, setRecaptcha] = useState(null);
   const defaultActive = useRef();
   const [open, setOpen] = useState(false);
+  const [loginUser,{isLoading, isSuccess, isError} ] = useLoginUserMutation;
+  const navigate = useNavigate();
 
 
   const grecaptchaObject = window.grecaptcha ;
@@ -42,6 +46,45 @@ function Login() {
       });
     }
   },[])
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    
+    // Check if password is provided
+    // if (!password) {
+    //   console.error("Password is required");
+    //   return;
+    // }
+
+    if (activeForm === 'form1' && (!email || !password)) {
+      console.error("Email and Password are required for Form 1");
+      return;
+    }
+    
+    if (activeForm === 'form2' && (!phone || !password)) {
+      console.error("Phone and Password are required for Form 2");
+      return;
+    }
+  
+    const credentials = {
+      emailOrPhone: activeForm === 'form1' ? email : phone,
+      password,
+    };
+  
+    try {
+      const response = await loginUser(credentials).unwrap();
+      console.log("Login Successful", response);
+    } catch (err) {
+      console.error("Login Failed", err);
+    }
+  };
+
+  useEffect(()=>{
+    if(isSuccess){
+      navigate("/")
+
+    }
+  })
 
 
   return (
