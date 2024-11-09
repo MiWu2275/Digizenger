@@ -97,7 +97,7 @@ function VerifyEmail (){
                         : `Time remaining: ${timeFormat(timer)}`}
                 </p>
                 <Link to="/login">
-                    <button className="bg-[#0097A7] w-full text-white py-2 px-6 rounded-lg mt-4">
+                    <button className="bg-[#0097A7] w-full text-white py-2 px-6 rounded-lg mt-4 font-semibold">
                         Continue
                     </button>
                 </Link>

@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { useState,  useEffect } from "react";
 import { IoIosCheckmark } from "react-icons/io";
 import { FaRegEyeSlash } from "react-icons/fa";
@@ -174,7 +173,7 @@ function SignInfo() {
             <div className="user_info_form1_container space-y-4 px-5 mt-4 ml-16 " >
                 <div className="user_info_input_container flex gap-4">
                     <div className="grid w-full">
-                        <label className="block place-self-start text-slate-500 mb-[10px]">First Name:</label>
+                        <label className="block place-self-start text-slate-500 mb-[10px] ">First Name:</label>
                         <input
                         type="text"
                         name="firstName"
@@ -185,7 +184,7 @@ function SignInfo() {
                         />
                     </div>
                     <div className="grid">
-                        <label className="block place-self-start text-slate-500 mb-[10px]">Last Name:</label>
+                        <label className="block place-self-start text-slate-500 mb-[10px] ">Last Name:</label>
                         <input
                         type="text"
                         name="lastName"

@@ -96,7 +96,7 @@ function Login() {
     <section className="flex justify-center pt-[80px] mb-[20px]">
       <main className="login_main_container text-center">
         <div className="mt-[-10px] grid mb-[10px] ">
-          <h1 className="login_header_text1 text-[36px] font-bold">
+          <h1 className="login_header_text1 text-[36px] font-bold ">
             <span className="text-[#00BCD4] text-[36px] ml-[-4rem] font-bold">Connect</span> Anytime,
           </h1>
           <div className="login_header_text2 ml-[-11rem] text-[36px] font-bold">AnyWhere</div>

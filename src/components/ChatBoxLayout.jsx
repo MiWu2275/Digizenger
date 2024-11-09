@@ -3,10 +3,10 @@ import { selectActiveChatRoom, selectChatList , addMessageToChat } from "../feat
 import andrea from '/images/andrea.png';
 import { PiChatTeardropFill } from "react-icons/pi";
 import { VscTriangleUp } from "react-icons/vsc";
-import pluse from '/images/pluse-bottom.png';
+import { CgAdd } from "react-icons/cg";
 import { GoImage } from "react-icons/go";
-import waveform from '/images/waveform.png';
-import emoji from '/images/emoji.png';
+import { PiWaveform } from "react-icons/pi";
+import { PiSmileySticker } from "react-icons/pi";
 import { useState, useRef, useEffect } from "react";
 import { FaCircleArrowUp } from "react-icons/fa6";
 import ChatBoxUserStatusNav from "./ChatBoxUserStatusNav";
@@ -125,12 +125,16 @@ function ChatBoxLayout () {
             </section>
             <div className="bg-[#ECF1F4] w-full flex items-center h-[70px] gap-[10px] px-[10px]">
                 <div className="flex items-center gap-[16px]">
-                    <img src={pluse} className="w-[28px] h-[28px]" alt="Plus icon" />
                     <i onClick={handleIconClick}>
-                        <GoImage size={25} className="w-[28px] h-[28px]" />
+                        <CgAdd size={25} className="w-[28px] h-[28px] text-[#2C3E50]" />
+                    </i>
+                    <i onClick={handleIconClick}>
+                        <GoImage size={25} className="w-[28px] h-[28px] text-[#2C3E50]" />
                     </i>
                     <input type="file" ref={imgRef} onChange={handleImageUpload} className="hidden" />
-                    <img src={waveform} className="w-[28px] h-[28px]" alt="Waveform icon" />
+                    <i onClick={handleIconClick}>
+                        <PiWaveform size={25} className="w-[28px] h-[28px] text-[#2C3E50]" />
+                    </i>
                 </div>
                 <div ref={chatRef} className="flex items-center p-[4px]">
                     <form onSubmit={sendMessage} className="flex items-center p-[4px] relative">
@@ -141,11 +145,11 @@ function ChatBoxLayout () {
                             onClick={inputHandle}
                             className="w-[390px] h-[40px] rounded-[27px] px-[10px] outline-none"
                         />
-                        {!inputStyle && <span className="absolute left-4">Message</span>}
+                        {!inputStyle && <span className="absolute left-4 text-[#8C8CA1]">Message</span>}
                         {inputStyle ? (
                             <i><FaCircleArrowUp className="absolute top-3 right-3 w-[25px] h-[25px] text-[#0097A7]" /></i>
                         ) : (
-                            <img src={emoji} className="absolute right-2 bg-[2C3E50]" alt="Emoji icon" />
+                            <i className='text-[#2C3E50] absolute right-2'><PiSmileySticker size={28}/></i>
                         )}
                     </form>
                 </div>

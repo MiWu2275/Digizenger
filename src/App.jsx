@@ -1,6 +1,5 @@
 import './App.css'
 import './Home.css'
-import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Nav from './components/Nav';
 import Login from './components/Login';
@@ -8,11 +7,17 @@ import Login from './components/Login';
 import SignInfo from './components/SignInfo';
 import RequestIdentity from './page/RequestIdentity';
 import VerifyEmail from './components/VerifyEmail';
-import Homepage from './page/Homepage';
+//import Homepage from './page/Homepage';
 import { store } from './feature/store';
 import { Provider } from 'react-redux';
 import ApiFetchExample  from './ApiFetch';
-
+//import SettingsNav from './components/SettingsNav';
+//import ChatListBottomNav from './components/ChatListBottomNav';
+//import ChatListSettings from './components/ChatListSettings';
+//import PasscodeSetup from './components/PasscodeSetup';
+//import CustomizeCollection from './components/CustomizeCollection';
+//import Collections2 from './components/Collections2';
+import Collection from './components/Collection';
 function MainApp() {
   const location = useLocation();
   const hideNav = ["/"];
@@ -28,7 +33,7 @@ function MainApp() {
     <div className={`${pageSpecificMargin[location.pathname] || 'mt-[0]'}`}>
       {!hideNav.includes(location.pathname) && <Nav />}
       <Routes>
-        <Route path='/' element={<Homepage />} />
+        <Route path='/' element={<Collection />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<SignInfo />} />
         <Route path='/signup/verify' element={<VerifyEmail />} />

@@ -1,8 +1,9 @@
 import andrea from '/images/andrea.png';
 import mark from '/images/mark2.png';
-import { TbPhone } from "react-icons/tb";
-import { IoVideocamOutline } from "react-icons/io5";
+import { PiPhone } from "react-icons/pi";
+import { GoDeviceCameraVideo } from "react-icons/go";
 import { HiOutlineDotsVertical } from "react-icons/hi";
+
 
 function ChatBoxUserStatusNav({message}){
     return(
@@ -21,8 +22,8 @@ function ChatBoxUserStatusNav({message}){
 
                </div>
                <div className='flex items-center justify-center gap-[20px]'>
-                    <i className='text-[#0097A7]'><TbPhone size={25}/></i>
-                    <i className='text-[#0097A7]'><IoVideocamOutline size={25}/></i>
+                    <i className='text-[#0097A7]'><PiPhone  size={25}/></i>
+                    <i className='text-[#0097A7]'><GoDeviceCameraVideo size={25}/></i>
                     <i className='text-[#0097A7]'><HiOutlineDotsVertical size={25}/></i>
                </div>
 
