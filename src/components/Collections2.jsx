@@ -5,7 +5,7 @@ import { RxCross2 } from "react-icons/rx";
 import folder from '/images/folder.png';
 import { RxPlus } from "react-icons/rx";
 import React,{useState} from "react";
-function CustomizeCollection(){
+function Collections2(){
     const [isButtonActive, setIsButtonActive] = useState(false);
     const handleButtonClick = () => {
         setIsButtonActive(true); // Set to true when clicked
@@ -13,9 +13,9 @@ function CustomizeCollection(){
 
     return(
         <div>
-            <div  className="bg-white w-[520px] h-[622.13px] rounded-lg p-20 border mt-40 ml-6 flex justify-center items-center relative">
+            <div  className="bg-white w-[520px] h-[622.13px] rounded-lg p-20 border ml-6 flex justify-center items-center relative">
                 <div className=" w-[480px] h-[19.13px] p-3 gap-0 mx-auto absolute inset-0 m-auto mt-4  flex items-center justify-end ">
-                    <RxCross2 className=" w-[13.13px] h-[13.13px] text-[#2C3E50]"/>
+                    <RxCross2 className=" w-[16px] h-[16px] text-[#2C3E50]"/>
                 </div>
                 <div className=" bg-white w-[480px] h-[563px] flex flex-col  items-center absolute mt-6 ">
                     <div className=" w-[480px] h-[246px]">
@@ -91,4 +91,4 @@ function CustomizeCollection(){
     );
 
 }
-export default CustomizeCollection;
+export default Collections2;

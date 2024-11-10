@@ -12,14 +12,11 @@ import charlie from "/images/charlie.png";
 import DianaPrince from "/images/DianaPrince.png";
 import LifePlus from "/images/LifePlus.png";
 import Collections2 from "./Collections2";
-
-function Collection1() {
-    const [isDoneClicked, setIsDoneClicked] = useState(false); // Track click event
-
-    const handleDoneClick = () => {
-        setIsDoneClicked(true); 
-    };
-
+const Collection1 = () => {
+    const [isCollection1Open, setIsCollection1Open] = useState(true);
+    const [isCollections2Open, setIsCollections2Open] = useState(false);
+    const [isButtonActive, setIsButtonActive] = useState(false);
+       
     const [checkedItems, setCheckedItems] = useState({
         khin: false,
         aliceonn: false,
@@ -48,20 +45,38 @@ function Collection1() {
         { name: "Jean Hannah", image: khin, badge: <PiShieldCheckFill className="text-[#00BA00] w-[15px] h-[15px] " /> },
     ];
 
-    return (
-        <div className="border w-[520px] h-[508.13px] bg-white rounded-md flex flex-col items-center justify-center">
-            
+    const handleOpenCollection1 = () => {
+        setIsCollection1Open(true);
+        setIsCollections2Open(false);
+    };
+  
+    const handleCloseCollection1 = () => {
+        setIsCollection1Open(false);
+        setIsCollections2Open(true);
+    };
 
-            {/* <div className="border w-[480px] h-[19.13px] flex items-center justify-end ">
+    const handleButtonClick = () => {
+        setIsButtonActive(true);
+    };
+
+    return (
+        <div>
+             {isCollection1Open && (
+        <div className="border w-[520px] h-[508.13px] bg-white rounded-md flex flex-col items-center justify-center">
+             <div className=" w-[480px] h-[19.13px] flex items-center justify-end ">
                 <RxCross2 className=" w-[18px] h-[18px] text-[#2C3E50]" />
-            </div> */}
+            </div> 
             <div className=" w-[480px] h-[445px] flex flex-col items-center justify-end">
                 <div className="w-[520px] h-[90px] flex flex-col items-center justify-start">
                     <span className=" w-[480px] h-[30px] flex items-start font-bold text-[#2C3E50] text-lg ">Select chats</span>
-                    <div className=" flex items-center w-[464px] h-[44px] rounded-md bg-[#ECF1F4] mr-3">
-                        <IoSearchOutline className=" w-[24px] h-[24px] text-[#2C3E50] ml-3" />
-                        <span className=" w-[51px] h-[24px] flex items-start text-[#8C8CA1] text-sm ml-2">Search</span>
-                    </div>
+                    <button
+                    onClick={handleButtonClick}  className={`flex items-center w-[464px] h-[44px] rounded-md bg-[#ECF1F4] mr-3 ${
+                        isButtonActive ? 'border-[#0097A7] border' : ''
+                    }`} // Conditional border color
+                >
+                     <IoSearchOutline className=" w-[24px] h-[24px] text-[#2C3E50] ml-3" />
+                    <label className="ml-2 text-[#8C8CA1]">Search</label>
+                </button>
                 </div>
                 <div className=" w-[480px] h-[300px] flex items-center justify-center scrollbar-hide overflow-y-auto mb-6" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }} >
                     <div className=" w-[476px] h-[336px] flex flex-col items-center justify-center mr-2 mt-36">
@@ -88,14 +103,19 @@ function Collection1() {
                     </div>
                     <div className="border rounded w-[4px] h-[77px] bg-[#C9DCDE] mb-40"></div>
                 </div>
-                {isDoneClicked ? (
-                    <Collections2 /> // If "Done" is clicked, render Collections2 component
-                ) : (
 
-                <div onClick={handleDoneClick} className="rounded-md bg-[#0097A7] w-[480px] h-[47px] flex items-center justify-center text-white text-md font-bold">Done</div>
-      )}
+                <div onClick={handleCloseCollection1} className="rounded-md bg-[#0097A7] w-[480px] h-[47px] flex items-center justify-center text-white text-md font-bold">Done
+                </div>
             </div>
         </div>
+             )}
+                    {isCollections2Open && (
+                <Collections2 
+                isOpen={isCollections2Open} 
+                onClose={handleOpenCollection1} 
+                />
+            )}
+      </div>
     );
 }
 
