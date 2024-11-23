@@ -17,7 +17,8 @@ import ApiFetchExample  from './ApiFetch';
 //import PasscodeSetup from './components/PasscodeSetup';
 //import CustomizeCollection from './components/CustomizeCollection';
 //import Collections2 from './components/Collections2';
-import Collection from './components/Collection';
+//import Collection from './components/Collection';
+import Login1 from './components/Login1';
 function MainApp() {
   const location = useLocation();
   const hideNav = ["/"];
@@ -33,7 +34,7 @@ function MainApp() {
     <div className={`${pageSpecificMargin[location.pathname] || 'mt-[0]'}`}>
       {!hideNav.includes(location.pathname) && <Nav />}
       <Routes>
-        <Route path='/' element={<Collection />} />
+        <Route path='/' element={<Login1 />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<SignInfo />} />
         <Route path='/signup/verify' element={<VerifyEmail />} />
